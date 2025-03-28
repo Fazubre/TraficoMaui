@@ -37,7 +37,7 @@
                            VerticalOptions="Center"
                            WidthRequest="60"/>
                        <Image HorizontalOptions="Center"
-                              Source=""/>
+                              Source="person_image.png"/>
                    </Grid> 
                     
                 </VerticalStackLayout>
