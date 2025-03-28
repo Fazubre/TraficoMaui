@@ -1,4 +1,6 @@
-﻿namespace TraficoCRFront
+﻿using TraficoCRFront.Views.LogIn;
+
+namespace TraficoCRFront
 {
     public partial class App : Application
     {
@@ -6,7 +8,7 @@
         {
             InitializeComponent();
 
-            MainPage = new AppShell();
+            MainPage = new LogIn();
         }
     }
 }
