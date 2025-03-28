@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.companyname.traficocrfront">
+
+	<application
+        android:allowBackup="true"
+        android:icon="@mipmap/appicon"
+        android:supportsRtl="true"
+        android:label="TraficoCRFront"
+        android:exported="true">
+
+		<!-- Google Maps API Connection -->
+		<meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyAqklMgACVPoPkDei78u_F9Os879q_gO-4" />
+
+	</application>
+
+	<!-- Permissions -->
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+</manifest>

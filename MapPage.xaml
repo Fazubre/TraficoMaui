@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+    <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:maps="http://schemas.microsoft.com/dotnet/2021/maui/maps"
+             xmlns:sensors="clr-namespace:Microsoft.Maui.Devices.Sensors;assembly=Microsoft.Maui.Essentials"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TraficoCRFront.MapPage">
+        <AbsoluteLayout>
+
+
+            <maps:Map x:Name="MyMap"
+                  MapClicked="OnMapClicked"
+                  IsShowingUser="True"
+                  MapType="Street"
+                  AbsoluteLayout.LayoutBounds="0.5,0.5,325,600"
+                  AbsoluteLayout.LayoutFlags="PositionProportional">
+                <x:Arguments>
+                    <maps:MapSpan>
+                        <x:Arguments>
+                            <sensors:Location>
+                                <x:Arguments>
+                                    <x:Double>9.6</x:Double>
+                                    <x:Double>-84.3534</x:Double>
+                                </x:Arguments>
+                            </sensors:Location>
+                            <x:Double>3</x:Double>
+                            <x:Double>3</x:Double>
+                        </x:Arguments>
+                    </maps:MapSpan>
+                </x:Arguments>
+            </maps:Map>
+
+
+        </AbsoluteLayout>
+
+
+
+    </ContentPage>
