@@ -32,10 +32,10 @@
                        <RoundRectangle
                            BackgroundColor="#EDEBF6"
                            CornerRadius="10"
-                           HeightRequest="60"
+                           HeightRequest="70"
                            HorizontalOptions="Center"
                            VerticalOptions="Center"
-                           WidthRequest="60"/>
+                           WidthRequest="70"/>
                        <Image HorizontalOptions="Center"
                               Source="person_image.png"/>
                    </Grid> 

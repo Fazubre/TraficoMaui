@@ -1,6 +1,4 @@
-﻿using Microsoft.Extensions.Logging;
-
-namespace TraficoCRFront
+﻿namespace TraficoCRFront
 {
     public static class MauiProgram
     {
@@ -13,6 +11,8 @@ namespace TraficoCRFront
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+                    fonts.AddFont("Lato-Bold.ttf", "bold");
+                    
                 })
                 .UseMauiMaps();
 
