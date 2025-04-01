@@ -1,106 +1,139 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="TraficoCRFront.Views.LogIn.LogIn"
-             Title="LogIn">
+<ContentPage
+    x:Class="TraficoCRFront.Views.LogIn.LogIn"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="LogIn">
     <ContentPage.Content>
-        
+
         <Grid RowDefinitions=".3*,.7*">
-            <Image Aspect="AspectFill" Source="goon.png"/>
-            <Grid BackgroundColor="#a693d0" Opacity=".9"/>
-                <Grid ColumnDefinitions="*,*">
-                    
-                    <Image Aspect="AspectFit"
-                           HeightRequest="120"
-                           Source="googleMapsIcon.png"/>
-                </Grid>
-            <Grid Grid.Row="1">
-                <RoundRectangle Margin="-5,-30,-5,-2"
-                                CornerRadius="30,30,0,0"
-                                Fill="White"/>
-                
-                    <VerticalStackLayout Margin="30,0,30,0">
-                        <Label FontAttributes="Bold"
-                               FontFamily="bold"
-                               FontSize="Medium"
-                               Text="Bienvenido!"
-                               TextColor="Black"/>
-                        <Label FontFamily="medium"
-                               Text="Haga LogIn para Continuar"
-                               TextColor="#A3A3A4"/>
-                        
-                   <Grid Margin ="0,30,0,0" ColumnDefinitions=".2*,.8*">
-                       <RoundRectangle
-                           BackgroundColor="#EDEBF6"
-                           CornerRadius="10"
-                           HeightRequest="70"
-                           HorizontalOptions="Center"
-                           VerticalOptions="Center"
-                           WidthRequest="70"/>
-                       <Image HorizontalOptions="Center">
-                           <Image.Source>
-                               <FontImageSource
-                                   FontFamily="AwesomeSolid"
-                                   Glyph="&#xf2bd;"
-                                   Size="50"
-                                   Color="#a693d0"
-                                   />
-                           </Image.Source>
-                       </Image>
-                       <Entry Grid.Column="1"
-                              Placeholder="USUARIO"
-                              Text="admin"
-                              VerticalOptions="Center"/>
-                   </Grid> 
-                    
-                        
-                    <Grid Margin ="0,30,0,0" ColumnDefinitions=".2*,.8*">
-                        <RoundRectangle
-                            BackgroundColor="#EDEBF6"
-                            CornerRadius="10"
-                            HeightRequest="70"
-                            HorizontalOptions="Center"
-                            VerticalOptions="Center"
-                            WidthRequest="70"/>
-                        <Image HorizontalOptions="Center">
-                            <Image.Source>
-                                <FontImageSource
-                                    FontFamily="AwesomeSolid"
-                                    Glyph="&#xf084;"
-                                    Size="50"
-                                    Color="#a693d0"
-                                />
-                            </Image.Source>
-                        </Image>
-                        <Entry Grid.Column="1"
-                               IsPassword="True"
-                               Placeholder="CONTRASEÑA"
-                               Text="123456"
-                               VerticalOptions="Center"/>
-                    </Grid> 
-                        <Button
-                            Margin="0,20,0,0"
-                            BackgroundColor="#e97697"
-                            HeightRequest="60"
-                            Text="LogIn"
-                            TextColor="#fffeee"/>
-                        <Label
-                            Margin="0,20,0,-10"
-                            HorizontalOptions="Center"
-                            Text="No tiene Usuario?"
-                            TextColor="#7697e9"
-                            TextDecorations="Underline"/>
-                        
-                        <Button
-                            Margin="0,10,0,0"
-                            BackgroundColor="White"
-                            HeightRequest="60"
-                            Text="Crear su Cuenta"
-                            TextColor="#72253a "/>
-                </VerticalStackLayout>
-                </Grid>
+            <Image Aspect="AspectFill" Source="googlemaps.png" />
+            <Grid BackgroundColor="#a693d0" Opacity=".9" />
+            <Grid ColumnDefinitions="*,*">
+
+                <Image
+                    Aspect="AspectFit"
+                    HeightRequest="120"
+                    Source="google_maps_icon.png" />
             </Grid>
-        
+
+            <StackLayout
+                Grid.Row="0"
+                Margin="10,10,0,20"
+                HorizontalOptions="Start"
+                Orientation="Horizontal"
+                Spacing="10">
+                <Image
+                    HeightRequest="30"
+                    Source="google_maps_pin.png"
+                    WidthRequest="30" />
+                <Label
+                    FontSize="24"
+                    Text="Google Maps"
+                    TextColor="#846A93"
+                    VerticalOptions="Center" />
+            </StackLayout>
+
+            <Frame
+                Grid.Row="1"
+                Padding="10"
+                BackgroundColor="White"
+                CornerRadius="20"
+                HasShadow="True">
+                <StackLayout Spacing="15">
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="24"
+                        HorizontalOptions="Center"
+                        Text="Bienvenido!"
+                        TextColor="#333366" />
+
+                    <Label
+                        Margin="0,0,0,10"
+                        HorizontalOptions="Center"
+                        Text="Haga Login para continuar"
+                        TextColor="#666666" />
+
+                    <Frame
+                        Padding="15,5"
+                        BorderColor="#E0E0E0"
+                        CornerRadius="10"
+                        HasShadow="False">
+                        <Grid ColumnDefinitions="Auto,*">
+                            <Image HorizontalOptions="Center">
+                                <Image.Source>
+                                    <FontImageSource
+                                        FontFamily="AwesomeSolid"
+                                        Glyph="&#xf2bd;"
+                                        Size="45"
+                                        Color="#a693d0" />
+                                </Image.Source>
+                            </Image>
+                            <Entry
+                                Grid.Column="1"
+                                Margin="5"
+                                BackgroundColor="Transparent"
+                                Placeholder="Email"
+                                PlaceholderColor="#999999"
+                                TextColor="#333333"
+                                VerticalOptions="Center" />
+                        </Grid>
+                    </Frame>
+
+                    <Frame
+                        Padding="15,5"
+                        BorderColor="#E0E0E0"
+                        CornerRadius="10"
+                        HasShadow="False">
+                        <Grid ColumnDefinitions="Auto,*">
+                            <Image HorizontalOptions="Center">
+                                <Image.Source>
+                                    <FontImageSource
+                                        FontFamily="AwesomeSolid"
+                                        Glyph="&#xf084;"
+                                        Size="45"
+                                        Color="#a693d0" />
+                                </Image.Source>
+                            </Image>
+                            <Entry
+                                Grid.Column="1"
+                                Margin="5"
+                                BackgroundColor="Transparent"
+                                IsPassword="True"
+                                Placeholder="Password"
+                                PlaceholderColor="#999999"
+                                TextColor="#333333"
+                                VerticalOptions="Center" />
+                        </Grid>
+                    </Frame>
+
+                    <Button
+                        Margin="0,10,0,5"
+                        BackgroundColor="#D5488B"
+                        CornerRadius="20"
+                        HeightRequest="50"
+                        Text="Login"
+                        TextColor="White" />
+
+                    <Label
+                        Margin="0,0,0,15"
+                        FontSize="14"
+                        HorizontalOptions="Center"
+                        Text="Forgot your password?"
+                        TextColor="#D5488B" />
+
+                    <Button
+                        BackgroundColor="Transparent"
+                        BorderColor="#D5488B"
+                        BorderWidth="1"
+                        CornerRadius="20"
+                        HeightRequest="50"
+                        Text="Create your account"
+                        TextColor="#D5488B" />
+                </StackLayout>
+            </Frame>
+        </Grid>
+
     </ContentPage.Content>
 </ContentPage>
