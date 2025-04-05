@@ -38,6 +38,7 @@
                                 </Image.Source>
                             </Image>
                             <Entry
+                                x:Name="NombreApellido"
                                 Grid.Column="1"
                                 Margin="5"
                                 BackgroundColor="Transparent"
@@ -64,6 +65,7 @@
                                 </Image.Source>
                             </Image>
                             <Entry
+                                x:Name="Email"
                                 Grid.Column="1"
                                 Margin="5"
                                 BackgroundColor="Transparent"
@@ -90,6 +92,7 @@
                                 </Image.Source>
                             </Image>
                             <Entry
+                                x:Name="Password"
                                 Grid.Column="1"
                                 Margin="5"
                                 BackgroundColor="Transparent"
@@ -117,6 +120,7 @@
                                 </Image.Source>
                             </Image>
                             <Entry
+                                x:Name="ConfirmPassword"
                                 Grid.Column="1"
                                 Margin="5"
                                 BackgroundColor="Transparent"
@@ -129,6 +133,7 @@
                     </Frame>
 
                     <Button
+                        x:Name="RegisterButton"
                         Margin="0,10,0,5"
                         BackgroundColor="#D5488B"
                         CornerRadius="20"
