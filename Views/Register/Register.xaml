@@ -139,7 +139,9 @@
                         CornerRadius="20"
                         HeightRequest="50"
                         Text="Register"
-                        TextColor="White" />
+                        TextColor="White"
+                        Clicked="OnRegisterButtonClicked"
+                        />
                 </StackLayout>
             </Frame>
         </Grid>

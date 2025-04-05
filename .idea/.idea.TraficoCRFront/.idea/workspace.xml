@@ -10,13 +10,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8c7f9a93-ef61-4ada-85d0-494d99ffcb42" name="Changes" comment="Added LogIn">
+    <list default="true" id="8c7f9a93-ef61-4ada-85d0-494d99ffcb42" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TraficoCRFront/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TraficoCRFront/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/App.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppShell.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AppShell.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MauiProgram.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MauiProgram.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/LogIn/LogIn.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Views/LogIn/LogIn.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/Register/Register.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Register/Register.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/Register/Register.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Register/Register.xaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +51,6 @@
     <setting file="file://$PROJECT_DIR$/AppShell.xaml.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Views/LogIn/LogIn.xaml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Views/LogIn/LogIn.xaml.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/fazub/RiderProjects/TraficoMaui/Views/Register/Register.xaml" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="InvalidFacetManager">
     <ignored-facets>
@@ -144,6 +139,7 @@
       <workItem from="1743813429261" duration="11000" />
       <workItem from="1743817008004" duration="63000" />
       <workItem from="1743825684585" duration="2532000" />
+      <workItem from="1743837770936" duration="1390000" />
     </task>
     <task id="LOCAL-00001" summary="Edit Login parte1">
       <option name="closed" value="true" />
@@ -193,7 +189,15 @@
       <option name="project" value="LOCAL" />
       <updated>1743829266037</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Added HttpClient functions">
+      <option name="closed" value="true" />
+      <created>1743833046505</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1743833046505</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -232,6 +236,7 @@
     <MESSAGE value="Completed LogIn View" />
     <MESSAGE value="Added Register" />
     <MESSAGE value="Added LogIn" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added LogIn" />
+    <MESSAGE value="Added HttpClient functions" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added HttpClient functions" />
   </component>
 </project>
