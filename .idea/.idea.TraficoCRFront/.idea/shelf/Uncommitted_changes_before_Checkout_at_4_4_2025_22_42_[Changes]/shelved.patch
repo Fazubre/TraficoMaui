@@ -1,0 +1,95 @@
+Index: Views/Register/Register.xaml.cs
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>using Microsoft.Maui.Controls;\r\nusing Microsoft.Maui.Controls.Xaml;\r\n\r\nnamespace TraficoCRFront.Views.Register\r\n{\r\n    \r\n    public partial class Register : ContentPage\r\n    {\r\n        public Register()\r\n        {\r\n            InitializeComponent();\r\n        }\r\n    }\r\n}
+===================================================================
+diff --git a/Views/Register/Register.xaml.cs b/Views/Register/Register.xaml.cs
+--- a/Views/Register/Register.xaml.cs	(revision 5ce4635945138e7d1d0a9e6a2cfeba18b27e0f2a)
++++ b/Views/Register/Register.xaml.cs	(date 1743828157687)
+@@ -10,5 +10,28 @@
+         {
+             InitializeComponent();
+         }
++
++        private async void RegisterButtonClick(object? sender, EventArgs e)
++        {
++            string nombre = NombreApellido.Text;
++            string correo = Email.Text;
++            string pass = Password.Text;
++            string confirmPass = ConfirmPassword.Text;
++
++            if (string.IsNullOrWhiteSpace(nombre) || string.IsNullOrWhiteSpace(correo) ||
++                string.IsNullOrWhiteSpace(pass) || string.IsNullOrWhiteSpace(confirmPass))
++            {
++                await DisplayAlert("Error", "Por favor complete todos los campos.", "OK");
++                return;
++            }
++
++            if (pass != confirmPass)
++            {
++                await DisplayAlert("Error", "Las contraseñas no coinciden.", "OK");
++                return;
++            }
++
++            await DisplayAlert("Éxito", "Registro completado correctamente.", "OK");
++        }
+     }
+ }
+\ No newline at end of file
+Index: Views/Register/Register.xaml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\" ?>\r\n\r\n<ContentPage\r\n    x:Class=\"TraficoCRFront.Views.Register.Register\"\r\n    xmlns=\"http://schemas.microsoft.com/dotnet/2021/maui\"\r\n    xmlns:x=\"http://schemas.microsoft.com/winfx/2009/xaml\"\r\n    Title=\"Register\">\r\n    <ContentPage.Content>\r\n\r\n        <Grid RowDefinitions=\"Auto,*\">\r\n            <Frame\r\n                Grid.Row=\"0\"\r\n                Padding=\"14\"\r\n                BackgroundColor=\"White\"\r\n                CornerRadius=\"20\"\r\n                HasShadow=\"True\">\r\n                <StackLayout Spacing=\"15\">\r\n                    <Label\r\n                        FontAttributes=\"Bold\"\r\n                        FontSize=\"24\"\r\n                        HorizontalOptions=\"Center\"\r\n                        Text=\"Registrarse!\"\r\n                        TextColor=\"#333366\" />\r\n\r\n                    <Frame\r\n                        Padding=\"15,5\"\r\n                        BorderColor=\"#E0E0E0\"\r\n                        CornerRadius=\"10\"\r\n                        HasShadow=\"False\">\r\n                        <Grid ColumnDefinitions=\"Auto,*\">\r\n                            <Image HorizontalOptions=\"Center\">\r\n                                <Image.Source>\r\n                                    <FontImageSource\r\n                                        FontFamily=\"AwesomeSolid\"\r\n                                        Glyph=\"&#xf007;\" \r\n                                        Size=\"45\"\r\n                                        Color=\"#a693d0\" />\r\n                                </Image.Source>\r\n                            </Image>\r\n                            <Entry\r\n                                Grid.Column=\"1\"\r\n                                Margin=\"5\"\r\n                                BackgroundColor=\"Transparent\"\r\n                                Placeholder=\"Nombre y apellido\"\r\n                                PlaceholderColor=\"#999999\"\r\n                                TextColor=\"#333333\"\r\n                                VerticalOptions=\"Center\" />\r\n                        </Grid>\r\n                    </Frame>\r\n\r\n                    <Frame\r\n                        Padding=\"15,5\"\r\n                        BorderColor=\"#E0E0E0\"\r\n                        CornerRadius=\"10\"\r\n                        HasShadow=\"False\">\r\n                        <Grid ColumnDefinitions=\"Auto,*\">\r\n                            <Image HorizontalOptions=\"Center\">\r\n                                <Image.Source>\r\n                                    <FontImageSource\r\n                                        FontFamily=\"AwesomeSolid\"\r\n                                        Glyph=\"&#xf0e0;\" \r\n                                        Size=\"45\"\r\n                                        Color=\"#a693d0\" />\r\n                                </Image.Source>\r\n                            </Image>\r\n                            <Entry\r\n                                Grid.Column=\"1\"\r\n                                Margin=\"5\"\r\n                                BackgroundColor=\"Transparent\"\r\n                                Placeholder=\"Email\"\r\n                                PlaceholderColor=\"#999999\"\r\n                                TextColor=\"#333333\"\r\n                                VerticalOptions=\"Center\" />\r\n                        </Grid>\r\n                    </Frame>\r\n\r\n                    <Frame\r\n                        Padding=\"15,5\"\r\n                        BorderColor=\"#E0E0E0\"\r\n                        CornerRadius=\"10\"\r\n                        HasShadow=\"False\">\r\n                        <Grid ColumnDefinitions=\"Auto,*\">\r\n                            <Image HorizontalOptions=\"Center\">\r\n                                <Image.Source>\r\n                                    <FontImageSource\r\n                                        FontFamily=\"AwesomeSolid\"\r\n                                        Glyph=\"&#xf084;\" \r\n                                        Size=\"45\"\r\n                                        Color=\"#a693d0\" />\r\n                                </Image.Source>\r\n                            </Image>\r\n                            <Entry\r\n                                Grid.Column=\"1\"\r\n                                Margin=\"5\"\r\n                                BackgroundColor=\"Transparent\"\r\n                                IsPassword=\"True\"\r\n                                Placeholder=\"Password\"\r\n                                PlaceholderColor=\"#999999\"\r\n                                TextColor=\"#333333\"\r\n                                VerticalOptions=\"Center\" />\r\n                        </Grid>\r\n                    </Frame>\r\n\r\n                    <Frame\r\n                        Padding=\"15,5\"\r\n                        BorderColor=\"#E0E0E0\"\r\n                        CornerRadius=\"10\"\r\n                        HasShadow=\"False\">\r\n                        <Grid ColumnDefinitions=\"Auto,*\">\r\n                            <Image HorizontalOptions=\"Center\">\r\n                                <Image.Source>\r\n                                    <FontImageSource\r\n                                        FontFamily=\"AwesomeSolid\"\r\n                                        Glyph=\"&#xf023;\" \r\n                                        Size=\"45\"\r\n                                        Color=\"#a693d0\" />\r\n                                </Image.Source>\r\n                            </Image>\r\n                            <Entry\r\n                                Grid.Column=\"1\"\r\n                                Margin=\"5\"\r\n                                BackgroundColor=\"Transparent\"\r\n                                IsPassword=\"True\"\r\n                                Placeholder=\"Confirmar password\"\r\n                                PlaceholderColor=\"#999999\"\r\n                                TextColor=\"#333333\"\r\n                                VerticalOptions=\"Center\" />\r\n                        </Grid>\r\n                    </Frame>\r\n\r\n                    <Button\r\n                        Margin=\"0,10,0,5\"\r\n                        BackgroundColor=\"#D5488B\"\r\n                        CornerRadius=\"20\"\r\n                        HeightRequest=\"50\"\r\n                        Text=\"Register\"\r\n                        TextColor=\"White\" />\r\n                </StackLayout>\r\n            </Frame>\r\n        </Grid>\r\n\r\n    </ContentPage.Content>\r\n</ContentPage>
+===================================================================
+diff --git a/Views/Register/Register.xaml b/Views/Register/Register.xaml
+--- a/Views/Register/Register.xaml	(revision 5ce4635945138e7d1d0a9e6a2cfeba18b27e0f2a)
++++ b/Views/Register/Register.xaml	(date 1743828157699)
+@@ -38,6 +38,7 @@
+                                 </Image.Source>
+                             </Image>
+                             <Entry
++                                x:Name="NombreApellido"
+                                 Grid.Column="1"
+                                 Margin="5"
+                                 BackgroundColor="Transparent"
+@@ -64,6 +65,7 @@
+                                 </Image.Source>
+                             </Image>
+                             <Entry
++                                x:Name="Email"
+                                 Grid.Column="1"
+                                 Margin="5"
+                                 BackgroundColor="Transparent"
+@@ -90,6 +92,7 @@
+                                 </Image.Source>
+                             </Image>
+                             <Entry
++                                x:Name="Password"
+                                 Grid.Column="1"
+                                 Margin="5"
+                                 BackgroundColor="Transparent"
+@@ -117,6 +120,7 @@
+                                 </Image.Source>
+                             </Image>
+                             <Entry
++                                x:Name="ConfirmPassword"
+                                 Grid.Column="1"
+                                 Margin="5"
+                                 BackgroundColor="Transparent"
+@@ -129,12 +133,15 @@
+                     </Frame>
+ 
+                     <Button
++                        x:Name="RegisterButton"
+                         Margin="0,10,0,5"
+                         BackgroundColor="#D5488B"
+                         CornerRadius="20"
+                         HeightRequest="50"
+                         Text="Register"
+-                        TextColor="White" />
++                        TextColor="White"
++                        Clicked="RegisterButtonClick"
++                        />
+                 </StackLayout>
+             </Frame>
+         </Grid>
