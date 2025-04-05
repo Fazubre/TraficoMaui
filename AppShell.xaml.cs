@@ -1,5 +1,6 @@
 ﻿using TraficoCRFront.Views;
 using TraficoCRFront.Views.LogIn;
+using TraficoCRFront.Views.Register;
 
 namespace TraficoCRFront
 {
@@ -11,6 +12,7 @@ namespace TraficoCRFront
             Routing.RegisterRoute("LogIn", typeof(LogIn));
             Routing.RegisterRoute("MainPage", typeof(MainPage));
             Routing.RegisterRoute("MapPage", typeof(MapPage));
+            Routing.RegisterRoute("Register", typeof(Register));  
         }
     }
 }

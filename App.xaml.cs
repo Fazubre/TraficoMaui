@@ -6,9 +6,10 @@ namespace TraficoCRFront
     {
         public App()
         {
+            var httpClient = DependencyService.Get<HttpClient>();
+            
             InitializeComponent();
-
-            MainPage = new NavigationPage(new LogIn());
+            MainPage = new NavigationPage(new LogIn(httpClient));
         }
     }
 }

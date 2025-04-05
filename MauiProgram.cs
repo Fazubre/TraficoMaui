@@ -1,4 +1,6 @@
-﻿namespace TraficoCRFront
+﻿using TraficoCRFront.Views.Register;
+
+namespace TraficoCRFront
 {
     public static class MauiProgram
     {
@@ -16,7 +18,11 @@
                     
                 })
                 .UseMauiMaps();
-
+            
+            builder.Services.AddSingleton<HttpClient>(new HttpClient
+            {
+                BaseAddress = new Uri("http://localhost:8000/") // Ajusta según tu API
+            });
 #if DEBUG
             builder.Logging.AddDebug();
 #endif
