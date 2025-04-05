@@ -8,7 +8,7 @@ namespace TraficoCRFront
         {
             InitializeComponent();
 
-            MainPage = new LogIn();
+            MainPage = new NavigationPage(new LogIn());
         }
     }
 }

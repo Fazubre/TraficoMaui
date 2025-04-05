@@ -1,5 +1,6 @@
 ﻿namespace TraficoCRFront.Views.LogIn;
 using TraficoCRFront.Views.Register;
+using TraficoCRFront.Views;
 
 public partial class LogIn : ContentPage
 {
@@ -13,9 +14,8 @@ public partial class LogIn : ContentPage
     {
         try
         {
-
-            MainPage mainPage = new MainPage();
-            await Navigation.PushAsync(mainPage);
+            
+            await Navigation.PushAsync(new MainPage());
 
 
         }
