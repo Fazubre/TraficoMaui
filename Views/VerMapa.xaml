@@ -1,10 +1,11 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:maps="http://schemas.microsoft.com/dotnet/2021/maui/maps"
+             xmlns:sensors="clr-namespace:Microsoft.Maui.Devices.Sensors;assembly=Microsoft.Maui.Essentials"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="TraficoCRFront.Views.MainPage"
-             Title="Inicio">
-
-    <Grid>
+             x:Class="TraficoCRFront.Views.VerMapa"
+             Title="Mapa de Incidencias">
+    <Grid BackgroundColor="#edede4">
 
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
@@ -15,63 +16,47 @@
                Aspect="AspectFill"
                HorizontalOptions="FillAndExpand"
                VerticalOptions="FillAndExpand"
-               Opacity="0.7"/>
+               Opacity="0.8"/>
 
-        <Frame BackgroundColor="#F8F7FC"
-               CornerRadius="15"
-               HasShadow="True"
-               BorderColor="#EEEEF2"
-               Margin="15"
-               Padding="20"
-               HeightRequest="350">
-            <Frame.Shadow>
-                <Shadow Brush="#5E2C64"
-                        Offset="0,4"
-                        Radius="8"
-                        Opacity="0.2" />
-            </Frame.Shadow>
-            <StackLayout Spacing="15">
-                <Label Text="Bienvenido"
-                       TextColor="#444466"
-                       FontSize="32"
-                       HorizontalOptions="Center"
-                       FontAttributes="Bold"
-                       Margin="0,0,0,10" />
 
-                <Button Margin="10,5,10,5"
-                        BackgroundColor="#91364E"
-                        CornerRadius="25"
-                        HeightRequest="55"
-                        Text="Crear un nuevo Reporte"
-                        TextColor="White"
-                        FontAttributes="Bold"
-                        FontSize="16"
-                        Clicked="OnCrearReporteClicked">
-                    <Button.Shadow>
-                        <Shadow Brush="#D5488B"
-                        Offset="0,2"
-                        Radius="4"
-                        Opacity="0.3" />
-                    </Button.Shadow>
-                </Button>
+        <Frame BackgroundColor="#F6F6F8"
+               CornerRadius="5"
+               Margin="30,0,30,0"
+               Padding="15,0,15,0"
+               HeightRequest="650"
+               WidthRequest="360">
 
-                <Button Margin="10,5,10,5"
-                BackgroundColor="#B4A8DB"
-                CornerRadius="25"
-                HeightRequest="55"
-                Text="Ver mis Reportes"
-                TextColor="White"
-                FontAttributes="Bold"
-                FontSize="16">
-                    <Button.Shadow>
-                        <Shadow Brush="#8064B1"
-                        Offset="0,2"
-                        Radius="4"
-                        Opacity="0.3" />
-                    </Button.Shadow>
-                </Button>
-            </StackLayout>
+
+            <AbsoluteLayout>
+
+                <maps:Map x:Name="MyMap"
+                  MapClicked="OnMapClicked"
+                  IsShowingUser="True"
+                  MapType="Street"
+                  AbsoluteLayout.LayoutBounds="0.5,0.5,325,600"
+                  AbsoluteLayout.LayoutFlags="PositionProportional">
+                    <x:Arguments>
+                        <maps:MapSpan>
+                            <x:Arguments>
+                                <sensors:Location>
+                                    <x:Arguments>
+                                        <x:Double>9.6</x:Double>
+                                        <x:Double>-84.3534</x:Double>
+                                    </x:Arguments>
+                                </sensors:Location>
+                                <x:Double>3</x:Double>
+                                <x:Double>3</x:Double>
+                            </x:Arguments>
+                        </maps:MapSpan>
+                    </x:Arguments>
+                </maps:Map>
+
+
+            </AbsoluteLayout>
+
         </Frame>
+
+        <!--Inicio Footer/Navbar-->
 
         <Frame Grid.Row="1" 
            HeightRequest="60" 
@@ -96,7 +81,7 @@
                 </Grid.ColumnDefinitions>
 
 
-                <Frame Grid.Column="0" 
+                <Frame Grid.Column="2" 
                        Grid.Row="0" 
                        Grid.RowSpan="2"
                        BorderColor="Transparent"
@@ -105,8 +90,8 @@
                        Margin="0,0,0,0"></Frame>
                 <Button Grid.Column="0"
                        Grid.Row="0"
-                       Clicked="OnInicioClicked"
                        HorizontalOptions="Center"
+                       Clicked="OnInicioClicked"
                        Background="Transparent">
                     <Button.ImageSource>
                         <FontImageSource FontFamily="AwesomeSolid"
@@ -127,9 +112,8 @@
 
 
                 <Button Grid.Column="1"
-
+                        Clicked="OnCrearReporteClicked"
                        Grid.Row="0"
-                       Clicked="OnCrearReporteClicked"
                        HorizontalOptions="Center"
                        Background="Transparent">
                     <Button.ImageSource>
@@ -149,7 +133,7 @@
 
 
                 <Button Grid.Row="0"
-                         Clicked="OnVerMapaClicked"
+                        Clicked="OnVerMapaClicked"
                        Grid.Column="2"
                        HorizontalOptions="Center"
                        Background="Transparent">
@@ -158,7 +142,7 @@
                                              Glyph="&#xf5a0;"
                                              Size="25"
                                              Color="#a693d0"/>
-                        
+
                     </Button.ImageSource>
                 </Button>
 
@@ -167,14 +151,12 @@
                        Grid.Row="1"
                        FontSize="10"
                        HorizontalOptions="Center"
-                       TextColor="#444466"
-                       />
+                       TextColor="#444466"/>
 
                 <Button Grid.Row="0"
                        Grid.Column="3"
                        HorizontalOptions="Center"
-                       Background="Transparent"
-                       >
+                       Background="Transparent">
                     <Button.ImageSource>
                         <FontImageSource FontFamily="AwesomeSolid"
                                          Glyph="&#xf0c9;"

@@ -1,4 +1,5 @@
-﻿using TraficoCRFront.Views.Register;
+﻿using Microsoft.Extensions.Logging;
+using TraficoCRFront.Views.Register;
 
 namespace TraficoCRFront
 {
