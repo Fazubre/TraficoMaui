@@ -4,10 +4,10 @@ namespace TraficoCRFront.Views;
 
 public partial class VerMapa : ContentPage
 {
-	public VerMapa()
-	{
-		InitializeComponent();
-	}
+    public VerMapa()
+    {
+        InitializeComponent();
+    }
 
     private async void OnCrearReporteClicked(object sender, EventArgs e)
     {

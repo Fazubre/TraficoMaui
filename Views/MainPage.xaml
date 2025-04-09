@@ -4,18 +4,8 @@
              x:Class="TraficoCRFront.Views.MainPage"
              Title="Inicio">
 
-    <VerticalStackLayout Padding="20" Spacing="15">
-        <Label Text="Bienvenido a la aplicación"
-               FontSize="24"
-               HorizontalOptions="Center"/>
+    <Grid>
 
-<<<<<<< Updated upstream
-        <Button Text="Empezar"
-                Clicked="OnStartButtonClicked"
-                HorizontalOptions="Center"/>
-    </VerticalStackLayout>
-</ContentPage>
-=======
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
@@ -83,8 +73,6 @@
             </StackLayout>
         </Frame>
 
-        
-        <!--Inicio Footer/Navbar-->
         <Frame Grid.Row="1" 
            HeightRequest="60" 
            BackgroundColor="#DDDAEE"
@@ -161,7 +149,7 @@
 
 
                 <Button Grid.Row="0"
-                       Clicked="OnVerMapaClicked" 
+                         Clicked="OnVerMapaClicked"
                        Grid.Column="2"
                        HorizontalOptions="Center"
                        Background="Transparent">
@@ -179,12 +167,14 @@
                        Grid.Row="1"
                        FontSize="10"
                        HorizontalOptions="Center"
-                       TextColor="#444466"/>
+                       TextColor="#444466"
+                       />
 
                 <Button Grid.Row="0"
                        Grid.Column="3"
                        HorizontalOptions="Center"
-                       Background="Transparent">
+                       Background="Transparent"
+                       >
                     <Button.ImageSource>
                         <FontImageSource FontFamily="AwesomeSolid"
                                          Glyph="&#xf0c9;"
@@ -224,4 +214,3 @@
 
     </Grid>
 </ContentPage>
->>>>>>> Stashed changes

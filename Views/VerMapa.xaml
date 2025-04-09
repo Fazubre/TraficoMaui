@@ -25,10 +25,9 @@
                Padding="15,0,15,0"
                HeightRequest="650"
                WidthRequest="360">
-            
+
 
             <AbsoluteLayout>
-
 
                 <maps:Map x:Name="MyMap"
                   MapClicked="OnMapClicked"
