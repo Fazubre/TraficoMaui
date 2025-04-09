@@ -1,4 +1,11 @@
+<<<<<<< Updated upstream
 ﻿namespace TraficoCRFront
+=======
+﻿using Microsoft.Extensions.Logging;
+using TraficoCRFront.Views.Register;
+
+namespace TraficoCRFront
+>>>>>>> Stashed changes
 {
     public static class MauiProgram
     {
