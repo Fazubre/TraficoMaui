@@ -1,9 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="TraficoCRFront.Views.MainPage"
-             Title="Inicio">
-
+             x:Class="TraficoCRFront.Views.VerReportes"
+             Title="Reportes Realizados">
     <Grid>
 
         <Grid.RowDefinitions>
@@ -11,67 +10,24 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <Image Source="carretera.jpg"
-               Aspect="AspectFill"
-               HorizontalOptions="FillAndExpand"
-               VerticalOptions="FillAndExpand"
-               Opacity="0.7"/>
+        <VerticalStackLayout>
+            <CollectionView ItemsSource="{Binding Reports}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame Margin="10" Padding="10" BorderColor="Gray" CornerRadius="10">
+                            <StackLayout>
+                                <Label Text="{Binding Contenido}" FontAttributes="Bold" FontSize="18" />
+                            </StackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
 
-        <Frame BackgroundColor="#F8F7FC"
-               CornerRadius="15"
-               HasShadow="True"
-               BorderColor="#EEEEF2"
-               Margin="15"
-               Padding="20"
-               HeightRequest="350">
-            <Frame.Shadow>
-                <Shadow Brush="#5E2C64"
-                        Offset="0,4"
-                        Radius="8"
-                        Opacity="0.2" />
-            </Frame.Shadow>
-            <StackLayout Spacing="15">
-                <Label Text="Bienvenido"
-                       TextColor="#444466"
-                       FontSize="32"
-                       HorizontalOptions="Center"
-                       FontAttributes="Bold"
-                       Margin="0,0,0,10" />
+            <BoxView HeightRequest="2" Color="#565554"/>
+        </VerticalStackLayout>
 
-                <Button Margin="10,5,10,5"
-                        BackgroundColor="#91364E"
-                        CornerRadius="25"
-                        HeightRequest="55"
-                        Text="Crear un nuevo Reporte"
-                        TextColor="White"
-                        FontAttributes="Bold"
-                        FontSize="16"
-                        Clicked="OnCrearReporteClicked">
-                    <Button.Shadow>
-                        <Shadow Brush="#D5488B"
-                        Offset="0,2"
-                        Radius="4"
-                        Opacity="0.3" />
-                    </Button.Shadow>
-                </Button>
 
-                <Button Margin="10,5,10,5"
-                BackgroundColor="#B4A8DB"
-                CornerRadius="25"
-                HeightRequest="55"
-                Text="Ver mis Reportes"
-                TextColor="White"
-                FontAttributes="Bold"
-                FontSize="16">
-                    <Button.Shadow>
-                        <Shadow Brush="#8064B1"
-                        Offset="0,2"
-                        Radius="4"
-                        Opacity="0.3" />
-                    </Button.Shadow>
-                </Button>
-            </StackLayout>
-        </Frame>
+        <!-- AQUI TERMINA EL CONTENIDO PRINCIPAL-->
 
         <Frame Grid.Row="1" 
            HeightRequest="60" 
@@ -96,7 +52,7 @@
                 </Grid.ColumnDefinitions>
 
 
-                <Frame Grid.Column="0" 
+                <Frame Grid.Column="3" 
                        Grid.Row="0" 
                        Grid.RowSpan="2"
                        BorderColor="Transparent"
@@ -158,7 +114,7 @@
                                              Glyph="&#xf5a0;"
                                              Size="25"
                                              Color="#a693d0"/>
-                        
+
                     </Button.ImageSource>
                 </Button>
 
@@ -174,7 +130,7 @@
                        Grid.Column="3"
                        HorizontalOptions="Center"
                        Background="Transparent"
-                    Clicked="OnVerReportesClicked"
+                       Clicked="OnVerReportesClicked"
                        >
                     <Button.ImageSource>
                         <FontImageSource FontFamily="AwesomeSolid"
@@ -194,8 +150,7 @@
                 <Button Grid.Row="0"
                        Grid.Column="4"
                        HorizontalOptions="Center"
-                       Background="Transparent"
-                       >
+                       Background="Transparent">
                     <Button.ImageSource>
                         <FontImageSource FontFamily="AwesomeSolid"
                                              Glyph="&#xf2bd;"

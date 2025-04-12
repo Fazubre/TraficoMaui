@@ -23,6 +23,11 @@
         {
             await Navigation.PushAsync(new VerMapa());
         }
+
+        private async void OnVerReportesClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new VerReportes());
+        }
     }
 
 }

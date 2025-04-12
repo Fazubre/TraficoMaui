@@ -17,5 +17,8 @@
     <MauiXaml Update="Views\VerMapa.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
+    <MauiXaml Update="Views\VerReportes.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
   </ItemGroup>
 </Project>

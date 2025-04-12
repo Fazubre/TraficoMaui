@@ -71,7 +71,13 @@
 	  <MauiXaml Update="Views\MainPage.xaml">
 	    <SubType>Designer</SubType>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\Register\Register.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\VerMapa.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\VerReportes.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

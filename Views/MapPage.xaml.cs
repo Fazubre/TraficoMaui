@@ -41,7 +41,9 @@ namespace TraficoCRFront.Views
             if (_locacionInci == null)
             {
                 await DisplayAlert("Error", "Seleccione una ubicación en el mapa.", "OK");
+                Debug.WriteLine("aaaaasadsdasd error");
                 return;
+               
             }
 
             string description = IncidentDescription.Text;
@@ -50,6 +52,7 @@ namespace TraficoCRFront.Views
             if (string.IsNullOrWhiteSpace(description) || string.IsNullOrWhiteSpace(incidentType))
             {
                 await DisplayAlert("Error", "Ingrese todos los datos del incidente.", "OK");
+                Debug.WriteLine("aaaaasadsdasd error numero 2");
                 return;
             }
 

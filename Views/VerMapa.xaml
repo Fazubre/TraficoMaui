@@ -156,7 +156,8 @@
                 <Button Grid.Row="0"
                        Grid.Column="3"
                        HorizontalOptions="Center"
-                       Background="Transparent">
+                       Background="Transparent"
+                       Clicked="OnVerReportesClicked">
                     <Button.ImageSource>
                         <FontImageSource FontFamily="AwesomeSolid"
                                          Glyph="&#xf0c9;"
