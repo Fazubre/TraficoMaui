@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="TraficoCRFront.Views.Admin.Admin"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Panel Administrativo">
+    <ContentPage.Content>
+        <Grid RowDefinitions=".2*,.8*">
+            <!-- Encabezado -->
+            <Grid BackgroundColor="#a693d0">
+                <StackLayout
+                    Margin="15,10,15,5"
+                    Orientation="Horizontal"
+                    HorizontalOptions="Start"
+                    VerticalOptions="Center">
+                    <Image
+                        HeightRequest="25"
+                        Source="google_maps_pin.png"
+                        WidthRequest="30" />
+                    <Label
+                        FontSize="22"
+                        Text="Panel Administrativo"
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        VerticalOptions="Center" />
+                </StackLayout>
+
+                <Button
+                    HorizontalOptions="End"
+                    VerticalOptions="Center"
+                    Margin="0,0,15,0"
+                    BackgroundColor="#91364E"
+                    TextColor="White"
+                    Text="Cerrar Sesión"
+                     Clicked="OnLogoutClicked"
+                    FontSize="14" />
+            </Grid>
+
+            <!-- Contenido principal -->
+            <ScrollView Grid.Row="1" Margin="0,5,0,0">
+                <StackLayout Padding="15">
+
+                    <Frame
+                        BackgroundColor="White"
+                        CornerRadius="15"
+                        HasShadow="True"
+                        Padding="15"
+                        Margin="0,0,0,15">
+                        <StackLayout>
+                            <Label
+                                Text="Dashboard"
+                                FontSize="20"
+                                FontAttributes="Bold"
+                                TextColor="#333366"
+                                Margin="0,0,0,10" />
+
+                            <Grid ColumnDefinitions="*,*" RowDefinitions="*,*" ColumnSpacing="15" RowSpacing="15">
+                                <!-- Tarjeta de Usuarios -->
+                                <Frame Grid.Row="0" Grid.Column="0" BackgroundColor="#f0f0f7" CornerRadius="10" Padding="10">
+                                    <StackLayout>
+                                        <Image HorizontalOptions="Start" VerticalOptions="Start">
+                                            <Image.Source>
+                                                <FontImageSource
+                                                    FontFamily="AwesomeSolid"
+                                                    Glyph="&#xf007;"
+                                                    Size="30"
+                                                    Color="#D5488B" />
+                                            </Image.Source>
+                                        </Image>
+                                        <Label Text="365" FontSize="26" FontAttributes="Bold" TextColor="#333366" />
+                                        <Label Text="Usuarios Registrados" FontSize="14" TextColor="#666666" />
+                                    </StackLayout>
+                                </Frame>
+
+                                <!-- Tarjeta de Reportes -->
+                                <Frame Grid.Row="0" Grid.Column="1" BackgroundColor="#f0f0f7" CornerRadius="10" Padding="10">
+                                    <StackLayout>
+                                        <Image HorizontalOptions="Start" VerticalOptions="Start">
+                                            <Image.Source>
+                                                <FontImageSource
+                                                    FontFamily="AwesomeSolid"
+                                                    Glyph="&#xf51e;"
+                                                    Size="30"
+                                                    Color="#a693d0" />
+                                            </Image.Source>
+                                        </Image>
+                                        <Label Text="124" FontSize="26" FontAttributes="Bold" TextColor="#333366" />
+                                        <Label Text="Reportes Activos" FontSize="14" TextColor="#666666" />
+                                    </StackLayout>
+                                </Frame>
+
+                                <!-- Tarjeta de Incidentes -->
+                                <Frame Grid.Row="1" Grid.Column="0" BackgroundColor="#f0f0f7" CornerRadius="10" Padding="10">
+                                    <StackLayout>
+                                        <Image HorizontalOptions="Start" VerticalOptions="Start">
+                                            <Image.Source>
+                                                <FontImageSource
+                                                    FontFamily="AwesomeSolid"
+                                                    Glyph="&#xf06a;"
+                                                    Size="30"
+                                                    Color="#FF9800" />
+                                            </Image.Source>
+                                        </Image>
+                                        <Label Text="58" FontSize="26" FontAttributes="Bold" TextColor="#333366" />
+                                        <Label Text="Incidentes Pendientes" FontSize="14" TextColor="#666666" />
+                                    </StackLayout>
+                                </Frame>
+
+                                <!-- Tarjeta de Ubicaciones -->
+                                <Frame Grid.Row="1" Grid.Column="1" BackgroundColor="#f0f0f7" CornerRadius="10" Padding="10">
+                                    <StackLayout>
+                                        <Image HorizontalOptions="Start" VerticalOptions="Start">
+                                            <Image.Source>
+                                                <FontImageSource
+                                                    FontFamily="AwesomeSolid"
+                                                    Glyph="&#xf3c5;"
+                                                    Size="30"
+                                                    Color="#4CAF50" />
+                                            </Image.Source>
+                                        </Image>
+                                        <Label Text="42" FontSize="26" FontAttributes="Bold" TextColor="#333366" />
+                                        <Label Text="Ubicaciones Marcadas" FontSize="14" TextColor="#666666" />
+                                    </StackLayout>
+                                </Frame>
+                            </Grid>
+                        </StackLayout>
+                    </Frame>
+
+                    <Frame
+                        BackgroundColor="White"
+                        CornerRadius="15"
+                        HasShadow="True"
+                        Padding="15"
+                        Margin="0,0,0,15">
+                        <StackLayout>
+                            <Label
+                                Text="Gestión"
+                                FontSize="20"
+                                FontAttributes="Bold"
+                                TextColor="#333366"
+                                Margin="0,0,0,10" />
+
+                            <!-- Opciones de Administración -->
+                            <Button
+                                Text="Gestionar Usuarios"
+                                BackgroundColor="#a693d0"
+                                TextColor="White"
+                                CornerRadius="10"
+                                Margin="0,5,0,10"
+                                HeightRequest="45" />
+                            <!--Clicked="OnManageUsersClicked"-->
+
+                            <Button
+                                Text="Gestionar Reportes"
+                                BackgroundColor="#D5488B"
+                                TextColor="White" 
+                                CornerRadius="10"
+                                Margin="0,0,0,10"
+                                HeightRequest="45" />
+                            <!--Clicked="OnManageReportsClicked"-->
+
+                            <Button
+                                Text="Gestionar Ubicaciones"
+                                BackgroundColor="#FF9800"
+                                TextColor="White"
+                                CornerRadius="10"
+                                Margin="0,0,0,10" 
+                                HeightRequest="45" />
+                            <!--Clicked="OnManageLocationsClicked"-->
+
+                            <Button
+                                Text="Ver Estadísticas"
+                                BackgroundColor="#4CAF50"
+                                TextColor="White"
+                                CornerRadius="10"
+                                Margin="0,0,0,5"
+                                HeightRequest="45" />
+                            <!--Clicked="OnViewStatisticsClicked"-->
+                        </StackLayout>
+                    </Frame>
+
+
+                </StackLayout>
+            </ScrollView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

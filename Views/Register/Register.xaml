@@ -7,8 +7,9 @@
     Title="Register">
     <ContentPage.Content>
 
-        <Grid RowDefinitions="Auto,*">
+        <Grid RowDefinitions="Auto,*" BackgroundColor="#DDDAEE" >
             <Frame
+                Margin="15,15,15,15"
                 Grid.Row="0"
                 Padding="14"
                 BackgroundColor="White"
@@ -38,6 +39,7 @@
                                 </Image.Source>
                             </Image>
                             <Entry
+                                x:Name="NombreApellido"
                                 Grid.Column="1"
                                 Margin="5"
                                 BackgroundColor="Transparent"
@@ -64,6 +66,7 @@
                                 </Image.Source>
                             </Image>
                             <Entry
+                                x:Name="Email"
                                 Grid.Column="1"
                                 Margin="5"
                                 BackgroundColor="Transparent"
@@ -90,6 +93,7 @@
                                 </Image.Source>
                             </Image>
                             <Entry
+                                x:Name="Password"
                                 Grid.Column="1"
                                 Margin="5"
                                 BackgroundColor="Transparent"
@@ -117,6 +121,7 @@
                                 </Image.Source>
                             </Image>
                             <Entry
+                                x:Name="ConfirmPassword"
                                 Grid.Column="1"
                                 Margin="5"
                                 BackgroundColor="Transparent"
@@ -129,12 +134,15 @@
                     </Frame>
 
                     <Button
+                        x:Name="RegisterButton"
                         Margin="0,10,0,5"
                         BackgroundColor="#D5488B"
                         CornerRadius="20"
                         HeightRequest="50"
                         Text="Register"
-                        TextColor="White" />
+                        TextColor="White"
+                        Clicked="OnRegisterButtonClicked"
+                        />
                 </StackLayout>
             </Frame>
         </Grid>
