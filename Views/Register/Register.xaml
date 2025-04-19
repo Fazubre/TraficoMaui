@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    x:Class="TraficoCRFront.Views.Register.Register"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Register">
+	<ContentPage.Content>
+
+		<Grid RowDefinitions="Auto,*">
+			<Frame
+                Grid.Row="0"
+                Padding="14"
+                BackgroundColor="White"
+                CornerRadius="20"
+                HasShadow="True">
+				<StackLayout Spacing="15">
+					<Label
+                        FontAttributes="Bold"
+                        FontSize="24"
+                        HorizontalOptions="Center"
+                        Text="Registrarse!"
+                        TextColor="#333366" />
+
+					<Frame
+                        Padding="15,5"
+                        BorderColor="#E0E0E0"
+                        CornerRadius="10"
+                        HasShadow="False">
+						<Grid ColumnDefinitions="Auto,*">
+							<Image HorizontalOptions="Center">
+								<Image.Source>
+									<FontImageSource
+                                        FontFamily="AwesomeSolid"
+                                        Glyph="&#xf007;"
+                                        Size="45"
+                                        Color="#a693d0" />
+								</Image.Source>
+							</Image>
+							<Entry
+                                x:Name="NombreApellido"
+                                Grid.Column="1"
+                                Margin="5"
+                                BackgroundColor="Transparent"
+                                Placeholder="Nombre y apellido"
+                                PlaceholderColor="#999999"
+                                TextColor="#333333"
+                                VerticalOptions="Center" />
+						</Grid>
+					</Frame>
+
+					<Frame
+                        Padding="15,5"
+                        BorderColor="#E0E0E0"
+                        CornerRadius="10"
+                        HasShadow="False">
+						<Grid ColumnDefinitions="Auto,*">
+							<Image HorizontalOptions="Center">
+								<Image.Source>
+									<FontImageSource
+                                        FontFamily="AwesomeSolid"
+                                        Glyph="&#xf0e0;"
+                                        Size="45"
+                                        Color="#a693d0" />
+								</Image.Source>
+							</Image>
+							<Entry
+                                x:Name="Email"
+                                Grid.Column="1"
+                                Margin="5"
+                                BackgroundColor="Transparent"
+                                Placeholder="Email"
+                                PlaceholderColor="#999999"
+                                TextColor="#333333"
+                                VerticalOptions="Center" />
+						</Grid>
+					</Frame>
+
+					<Frame
+                        Padding="15,5"
+                        BorderColor="#E0E0E0"
+                        CornerRadius="10"
+                        HasShadow="False">
+						<Grid ColumnDefinitions="Auto,*">
+							<Image HorizontalOptions="Center">
+								<Image.Source>
+									<FontImageSource
+                                        FontFamily="AwesomeSolid"
+                                        Glyph="&#xf084;"
+                                        Size="45"
+                                        Color="#a693d0" />
+								</Image.Source>
+							</Image>
+							<Entry
+                                x:Name="Password"
+                                Grid.Column="1"
+                                Margin="5"
+                                BackgroundColor="Transparent"
+                                IsPassword="True"
+                                Placeholder="Password"
+                                PlaceholderColor="#999999"
+                                TextColor="#333333"
+                                VerticalOptions="Center" />
+						</Grid>
+					</Frame>
+
+					<Frame
+                        Padding="15,5"
+                        BorderColor="#E0E0E0"
+                        CornerRadius="10"
+                        HasShadow="False">
+						<Grid ColumnDefinitions="Auto,*">
+							<Image HorizontalOptions="Center">
+								<Image.Source>
+									<FontImageSource
+                                        FontFamily="AwesomeSolid"
+                                        Glyph="&#xf023;"
+                                        Size="45"
+                                        Color="#a693d0" />
+								</Image.Source>
+							</Image>
+							<Entry
+                                x:Name="ConfirmPassword"
+                                Grid.Column="1"
+                                Margin="5"
+                                BackgroundColor="Transparent"
+                                IsPassword="True"
+                                Placeholder="Confirmar password"
+                                PlaceholderColor="#999999"
+                                TextColor="#333333"
+                                VerticalOptions="Center" />
+						</Grid>
+					</Frame>
+
+					<Button
+                        x:Name="RegisterButton"
+                        Margin="0,10,0,5"
+                        BackgroundColor="#D5488B"
+                        CornerRadius="20"
+                        HeightRequest="50"
+                        Text="Register"
+                        TextColor="White"
+                        Clicked="OnRegisterButtonClicked"
+                        />
+				</StackLayout>
+			</Frame>
+		</Grid>
+
+	</ContentPage.Content>
+</ContentPage>

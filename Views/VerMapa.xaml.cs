@@ -40,4 +40,9 @@ public partial class VerMapa : ContentPage
 
         MyMap.Pins.Add(pin);
     }
+
+    private async void OnVerReportesClicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new VerReportes());
+    }
 }

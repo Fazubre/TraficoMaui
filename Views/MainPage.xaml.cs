@@ -2,7 +2,7 @@
 {
     public partial class MainPage : ContentPage
     {
-        
+
 
         public MainPage()
         {
@@ -13,15 +13,20 @@
         {
             await Navigation.PushAsync(new MapPage());
         }
-        
+
         private async void OnInicioClicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new MainPage());
         }
 
-        private async void OnVerMapaClicked (object sender, EventArgs e)
+        private async void OnVerMapaClicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new VerMapa());
+        }
+
+        private async void OnVerReportesClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new VerReportes());
         }
     }
 

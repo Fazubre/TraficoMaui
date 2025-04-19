@@ -5,9 +5,9 @@ namespace TraficoCRFront.Views
 {
     public partial class MapPage : ContentPage
     {
-        
+
         private Location _locacionInci;
-        
+
 
 
         public MapPage()
@@ -31,17 +31,19 @@ namespace TraficoCRFront.Views
             };
 
             MyMap.Pins.Add(pin);
-            
+
             DisplayAlert("Ubicación seleccionada", $"Lat: {e.Location.Latitude}, Lng: {e.Location.Longitude}", "OK");
         }
-        
+
         private async void OnReportIncident(object sender, EventArgs e)
         {
-           
+
             if (_locacionInci == null)
             {
                 await DisplayAlert("Error", "Seleccione una ubicación en el mapa.", "OK");
+                Debug.WriteLine("aaaaasadsdasd error");
                 return;
+
             }
 
             string description = IncidentDescription.Text;
@@ -50,6 +52,7 @@ namespace TraficoCRFront.Views
             if (string.IsNullOrWhiteSpace(description) || string.IsNullOrWhiteSpace(incidentType))
             {
                 await DisplayAlert("Error", "Ingrese todos los datos del incidente.", "OK");
+                Debug.WriteLine("aaaaasadsdasd error numero 2");
                 return;
             }
 
@@ -64,16 +67,16 @@ namespace TraficoCRFront.Views
             _locacionInci = null;
             MyMap.Pins.Clear();
         }
-        
+
         private async void OnCrearReporteClicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new MapPage());
         }
-        
+
         private async void OnInicioClicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new MainPage());
         }
-        
+
     }
 }
