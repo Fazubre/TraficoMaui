@@ -8,66 +8,88 @@ using TraficoCRFront.Views.LogIn;
 namespace TraficoCRFront.Views.Register
 {
     
-    public partial class Register : ContentPage
+   public partial class Register : ContentPage
+{
+    private readonly HttpClient _client;
+
+    public Register(HttpClient client)
     {
-        private readonly HttpClient _client;
+        InitializeComponent();
+        _client = client;
+    }
 
-        public Register(HttpClient client)
+    private async void OnRegisterButtonClicked(object sender, EventArgs e)
+    {
+        string nombre = NombreApellido.Text?.Trim();
+        string pass = Password.Text;
+        string confirmPass = ConfirmPassword.Text;
+
+        if (string.IsNullOrWhiteSpace(nombre) || string.IsNullOrWhiteSpace(pass) ||
+            string.IsNullOrWhiteSpace(confirmPass))
         {
-            InitializeComponent();
-            _client = client;
+            await DisplayAlert("Error", "Por favor completa todos los campos.", "OK");
+            return;
         }
-        private async void OnRegisterButtonClicked(object sender, EventArgs e)
+
+        if (pass != confirmPass)
         {
-            string nombre = NombreApellido.Text;
-            string correo = Email.Text;
-            string pass = Password.Text;
-            string confirmPass = ConfirmPassword.Text;
+            await DisplayAlert("Error", "Las contraseñas no coinciden.", "OK");
+            return;
+        }
 
-            if (string.IsNullOrWhiteSpace(nombre) || string.IsNullOrWhiteSpace(correo) ||
-                string.IsNullOrWhiteSpace(pass) || string.IsNullOrWhiteSpace(confirmPass))
-            {
-                await DisplayAlert("Error", "Por favor completa todos los campos.", "OK");
-                return;
-            }
-
-            if (pass != confirmPass)
-            {
-                await DisplayAlert("Error", "Las contraseñas no coinciden.", "OK");
-                return;
-            }
-
-            await SignupRequest(nombre, pass , _client);
+        bool success = await SignupRequest(nombre, pass);
+        if (success)
+        {
             await DisplayAlert("Éxito", "Registro completado correctamente.", "OK");
+            await Navigation.PushAsync(new LogIn.LogIn(_client)); // Ir al login tras éxito
         }
-        
-        static async Task SignupRequest(string uname, string pword, HttpClient client)
+        else
         {
-            using StringContent jsonContent = new(
-                JsonSerializer.Serialize(new
-                {
-                    username = uname,
-                    password = pword
-                }), Encoding.UTF8,
-                "application/json");
-            using HttpResponseMessage response = await client.PostAsync(
-                "signup",
-                jsonContent
-            );
-            IEnumerable<string> values;
-            string token = string.Empty;
-            if (response.Headers.TryGetValues("Set-Cookie", out values))
+            await DisplayAlert("Error", "No se pudo completar el registro. Intenta más tarde.", "OK");
+        }
+    }
+
+    private async Task<bool> SignupRequest(string uname, string pword)
+    {
+        try
+        {
+            var payload = new
             {
-                token = values.FirstOrDefault();
-                Console.WriteLine(token);
-            }
+                username = uname,
+                password = pword
+            };
+
+            var json = JsonSerializer.Serialize(payload);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            var response = await _client.PostAsync("signup", content);
+
             if (response.StatusCode != HttpStatusCode.OK)
             {
-                Console.WriteLine(response.StatusCode);
-                Console.WriteLine(response.ToString());
-            } 
-            client.DefaultRequestHeaders.Add("Cookie",token);
-        }
+                Console.WriteLine($"Registro fallido: {response.StatusCode}");
+                return false;
+            }
 
+            if (response.Headers.TryGetValues("Set-Cookie", out var values))
+            {
+                var token = values.FirstOrDefault();
+                if (!string.IsNullOrEmpty(token))
+                {
+                    if (!_client.DefaultRequestHeaders.Contains("Cookie"))
+                        _client.DefaultRequestHeaders.Add("Cookie", token);
+
+                    Console.WriteLine("Token guardado: " + token);
+                }
+            }
+
+            return true;
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Error en SignupRequest: " + ex.Message);
+            return false;
+        }
     }
+}
+
 }

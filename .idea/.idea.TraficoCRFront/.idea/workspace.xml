@@ -15,10 +15,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8c7f9a93-ef61-4ada-85d0-494d99ffcb42" name="Changes" comment="Commit Changes Before massive Pull">
+    <list default="true" id="8c7f9a93-ef61-4ada-85d0-494d99ffcb42" name="Changes" comment="Added the correct connection to the API">
+      <change afterPath="$PROJECT_DIR$/Resources/Images/logoapp.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TraficoCRFront/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TraficoCRFront/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/App.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MauiProgram.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MauiProgram.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/LogIn/LogIn.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/LogIn/LogIn.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/LogIn/LogIn.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Views/LogIn/LogIn.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/Register/Register.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Register/Register.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/Register/Register.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Register/Register.xaml.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,6 +66,9 @@
     </ignored-facets>
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
 }</component>
@@ -143,13 +149,13 @@
       <option name="project" value="LOCAL" />
       <updated>1745284034907</updated>
     </task>
-    <task id="LOCAL-00002" summary="Added person_image.png">
+    <task id="LOCAL-00002" summary="Added the correct connection to the API">
       <option name="closed" value="true" />
-      <created>1743145251215</created>
+      <created>1745291533933</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1743145251215</updated>
+      <updated>1745291533933</updated>
     </task>
     <task id="LOCAL-00003" summary="Added Fonts">
       <option name="closed" value="true" />
@@ -175,7 +181,7 @@
       <option name="project" value="LOCAL" />
       <updated>1743826594837</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -214,6 +220,7 @@
     <MESSAGE value="Completed LogIn View" />
     <MESSAGE value="Added Register" />
     <MESSAGE value="Commit Changes Before massive Pull" />
-    <option name="LAST_COMMIT_MESSAGE" value="Commit Changes Before massive Pull" />
+    <MESSAGE value="Added the correct connection to the API" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added the correct connection to the API" />
   </component>
 </project>

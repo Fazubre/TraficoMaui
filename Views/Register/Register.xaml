@@ -7,8 +7,9 @@
     Title="Register">
     <ContentPage.Content>
 
-        <Grid RowDefinitions="Auto,*">
+        <Grid RowDefinitions="Auto,*" BackgroundColor="#DDDAEE" >
             <Frame
+                Margin="15,15,15,15"
                 Grid.Row="0"
                 Padding="14"
                 BackgroundColor="White"
@@ -43,33 +44,6 @@
                                 Margin="5"
                                 BackgroundColor="Transparent"
                                 Placeholder="Nombre y apellido"
-                                PlaceholderColor="#999999"
-                                TextColor="#333333"
-                                VerticalOptions="Center" />
-                        </Grid>
-                    </Frame>
-
-                    <Frame
-                        Padding="15,5"
-                        BorderColor="#E0E0E0"
-                        CornerRadius="10"
-                        HasShadow="False">
-                        <Grid ColumnDefinitions="Auto,*">
-                            <Image HorizontalOptions="Center">
-                                <Image.Source>
-                                    <FontImageSource
-                                        FontFamily="AwesomeSolid"
-                                        Glyph="&#xf0e0;" 
-                                        Size="45"
-                                        Color="#a693d0" />
-                                </Image.Source>
-                            </Image>
-                            <Entry
-                                x:Name="Email"
-                                Grid.Column="1"
-                                Margin="5"
-                                BackgroundColor="Transparent"
-                                Placeholder="Email"
                                 PlaceholderColor="#999999"
                                 TextColor="#333333"
                                 VerticalOptions="Center" />
