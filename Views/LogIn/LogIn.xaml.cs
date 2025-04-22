@@ -8,11 +8,13 @@ namespace TraficoCRFront.Views.LogIn
     public partial class LogIn : ContentPage
     {
         private readonly HttpClient _client;
+        private readonly datosUsuario _user;
 
-        public LogIn(HttpClient client)
+        public LogIn(HttpClient client, datosUsuario user)
         {
             InitializeComponent();
             _client = client;
+            _user = user;
         }
 
         private async void OnLoginClicked(object sender, EventArgs e)
@@ -31,9 +33,9 @@ namespace TraficoCRFront.Views.LogIn
                 loadingIndicator.IsVisible = true;
                 loadingIndicator.IsRunning = true;
                 loginButton.IsEnabled = false;
-
+                    
                 var loginExitoso = await LoginRequest(user, pass);
-
+                
                 loadingIndicator.IsRunning = false;
                 loadingIndicator.IsVisible = false;
                 loginButton.IsEnabled = true;
@@ -50,7 +52,7 @@ namespace TraficoCRFront.Views.LogIn
             }
             catch (Exception ex)
             {
-                Console.WriteLine("❌ Error en login: " + ex.Message);
+                Console.WriteLine("❌ Error en login: " + ex);
                 await DisplayAlert("Error", "Ocurrió un error al intentar iniciar sesión.", "OK");
                 loadingIndicator.IsRunning = false;
                 loadingIndicator.IsVisible = false;
@@ -86,6 +88,12 @@ namespace TraficoCRFront.Views.LogIn
                     Console.WriteLine("Token recibido y agregado.");
                 }
             }
+            
+            var rContent = await response.Content.ReadAsStringAsync();
+            var parsedJson = JsonSerializer.Deserialize<NivelAcceso>(rContent);
+            
+            _user.username = uname;
+            _user.nivelAcceso = (int)parsedJson.nivelAcceso;
 
             return true;
         }

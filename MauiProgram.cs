@@ -1,4 +1,5 @@
-﻿using TraficoCRFront.Views.Register;
+﻿using Microsoft.Extensions.Logging;
+using TraficoCRFront.Views.Register;
 
 namespace TraficoCRFront
 {
@@ -24,6 +25,7 @@ namespace TraficoCRFront
             {
                 BaseAddress = new Uri("http://192.168.0.3:8000/")
             });
+            builder.Services.AddSingleton(new datosUsuario());
 
             // ✅ También registra la clase App para que MAUI pueda inyectarla
             builder.Services.AddSingleton<App>();

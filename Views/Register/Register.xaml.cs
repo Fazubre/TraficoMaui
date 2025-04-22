@@ -11,7 +11,7 @@ namespace TraficoCRFront.Views.Register
    public partial class Register : ContentPage
 {
     private readonly HttpClient _client;
-
+    private readonly datosUsuario _user;
     public Register(HttpClient client)
     {
         InitializeComponent();
@@ -41,7 +41,7 @@ namespace TraficoCRFront.Views.Register
         if (success)
         {
             await DisplayAlert("Éxito", "Registro completado correctamente.", "OK");
-            await Navigation.PushAsync(new LogIn.LogIn(_client)); // Ir al login tras éxito
+            await Navigation.PushAsync(new LogIn.LogIn(_client,_user)); // Ir al login tras éxito
         }
         else
         {
