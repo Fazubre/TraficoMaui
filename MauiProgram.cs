@@ -7,24 +7,29 @@ namespace TraficoCRFront
         public static MauiApp CreateMauiApp()
         {
             var builder = MauiApp.CreateBuilder();
+
             builder
-                .UseMauiApp<App>()
+                .UseMauiApp<App>() // <- esto usa el constructor de App con DI
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                     fonts.AddFont("Lato-Bold.ttf", "bold");
                     fonts.AddFont("Font Awesome Solid.otf", "AwesomeSolid");
-                    
                 })
                 .UseMauiMaps();
-            
-            builder.Services.AddSingleton<HttpClient>(new HttpClient
+
+            // ✅ Registra HttpClient como singleton
+            builder.Services.AddSingleton(new HttpClient
             {
-                BaseAddress = new Uri("http://localhost:8000/") // Ajusta según tu API
+                BaseAddress = new Uri("http://192.168.0.3:8000/")
             });
+
+            // ✅ También registra la clase App para que MAUI pueda inyectarla
+            builder.Services.AddSingleton<App>();
+
 #if DEBUG
-            builder.Logging.AddDebug();
+    builder.Logging.AddDebug();
 #endif
 
             return builder.Build();
