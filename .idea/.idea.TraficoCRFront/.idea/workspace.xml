@@ -16,12 +16,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8c7f9a93-ef61-4ada-85d0-494d99ffcb42" name="Changes" comment="Added the correct connection to the API">
-      <change afterPath="$PROJECT_DIR$/Resources/Images/logoapp.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.TraficoCRFront/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.TraficoCRFront/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TraficoCRFront/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TraficoCRFront/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/LogIn/LogIn.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/LogIn/LogIn.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Platforms/Android/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Platforms/Android/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Views/LogIn/LogIn.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Views/LogIn/LogIn.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/Register/Register.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Register/Register.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/Register/Register.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Register/Register.xaml.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,12 +43,12 @@
     &quot;assignee&quot;: &quot;Fazubre&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/Fazubre/TraficoMaui.git&quot;,
-    &quot;accountId&quot;: &quot;1e3f061e-6f63-4faf-9bf8-ec0a3ec0150e&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Fazubre/TraficoMaui.git",
+    "accountId": "ea646468-be2c-452a-bbc4-5fbb9fc4ee51"
   }
-}</component>
+}]]></component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/92d8a5a31687cbcdabf76478f86032663b50f4998234b17fb1c838c3c8f5f47/Application.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/c439425da351c75ac7d966a1cc8324b51a9c471865af79d2f2f3fcb65e392/HttpClient.cs" root0="SKIP_HIGHLIGHTING" />
@@ -81,8 +80,13 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Android.TraficoCRFront.executor": "Run",
+    "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "main",
-    "node.js.selected.package.tslint": "(autodetect)"
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RunAnythingCache">
@@ -140,6 +144,7 @@
       <workItem from="1743813429261" duration="11000" />
       <workItem from="1743817008004" duration="63000" />
       <workItem from="1743825684585" duration="2532000" />
+      <workItem from="1745295579254" duration="1676000" />
     </task>
     <task id="LOCAL-00001" summary="Commit Changes Before massive Pull">
       <option name="closed" value="true" />

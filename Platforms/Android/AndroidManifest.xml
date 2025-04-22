@@ -7,7 +7,8 @@
         android:icon="@mipmap/appicon"
         android:supportsRtl="true"
         android:label="TraficoCRFront"
-        android:exported="true">
+        android:exported="true"
+		android:usesCleartextTraffic="true">
 
 		<!-- Google Maps API Connection -->
 		<meta-data
