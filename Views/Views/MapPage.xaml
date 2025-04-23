@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8" ?>
+    <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:maps="http://schemas.microsoft.com/dotnet/2021/maui/maps"
+             xmlns:sensors="clr-namespace:Microsoft.Maui.Devices.Sensors;assembly=Microsoft.Maui.Essentials"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TraficoCRFront.Views.MapPage">
+        
+        <Grid RowDefinitions="Auto,*,Auto">
+      
+            <!-- Mapa -->
+            <maps:Map x:Name="MyMap"
+                      Grid.Row="0"
+                      MapClicked="OnMapClicked"
+                      IsShowingUser="True"
+                      MapType="Street"
+                      HeightRequest="400">
+                <x:Arguments>
+                    <maps:MapSpan>
+                        <x:Arguments>
+                            <sensors:Location>
+                                <x:Arguments>
+                                    <x:Double>9.6</x:Double>
+                                    <x:Double>-84.3534</x:Double>
+                                </x:Arguments>
+                            </sensors:Location>
+                            <x:Double>3</x:Double>
+                            <x:Double>3</x:Double>
+                        </x:Arguments>
+                    </maps:MapSpan>
+                </x:Arguments>
+            </maps:Map>
+
+
+            <!-- Formulario de Reporte -->
+            <StackLayout Grid.Row="1" Padding="10" Spacing="15">
+                
+                    <Frame
+                        Padding="15,5"
+                        BorderColor="#E0E0E0"
+                        CornerRadius="10"
+                        HasShadow="False">
+                        <Grid 
+                              RowDefinitions="Auto,*">
+                            
+                            <Label Text="Descripción del Incidente:"/>
+                
+                            <Entry
+                                x:Name="IncidentDescription" 
+                                Placeholder="Ingrese una descripción"
+                                
+                                Grid.Row="2"
+                                Margin="5"
+                                BackgroundColor="Transparent"
+                                PlaceholderColor="#999999"
+                                TextColor="#333333"
+                                VerticalOptions="Center" />
+                        </Grid>
+                    </Frame>
+
+                <Frame
+                    Padding="15,5"
+                    BorderColor="#E0E0E0"
+                    CornerRadius="10"
+                    HasShadow="False">
+                    
+                    <Grid
+                          RowDefinitions="Auto,*">
+                        
+                        <Label Text="Tipo de Incidente:"/>
+                        <Picker x:Name="IncidentType"
+                                Grid.Row="2">
+                            <Picker.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>Hueco</x:String>
+                                    <x:String>Calle Bloqueada</x:String>
+                                    <x:String>Deslizamiento</x:String>
+                                    <x:String>Inundacion</x:String>
+                                    <x:String>Infraestructura Peligrosa</x:String>
+                                    <x:String>Otro</x:String>
+                                </x:Array>
+                            </Picker.ItemsSource>
+                        </Picker>
+                        
+                    </Grid>
+                    
+                </Frame>
+
+
+                <Button
+                    Margin="0,10,0,5"
+                    BackgroundColor="#D5488B"
+                    CornerRadius="20"
+                    HeightRequest="50"
+                    Text="Reportar Incidente"
+                    Clicked="OnReportIncident"
+                    TextColor="White" />
+            </StackLayout>
+            
+            
+            
+        </Grid>
+
+        
+        
+    </ContentPage>

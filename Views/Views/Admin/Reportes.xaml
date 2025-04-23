@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TraficoCRFront.Views.Admin.Reportes"
+             Title="Reportes Completos">
+    <ScrollView>
+        <StackLayout Padding="20">
+            <Label Text="Reportes Completos"
+                   FontSize="24"
+                   TextColor="#333366"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center" />
+
+            <SearchBar x:Name="ReportSearchBar" Placeholder="Buscar reportes..." TextChanged="OnSearchTextChanged" Margin="0,10" />
+
+            <CollectionView x:Name="ReportesCollectionView" SelectionMode="None">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BorderColor="Gray" Padding="10" Margin="5">
+                            <VerticalStackLayout>
+                                <Label Text="{Binding Titulo}" FontSize="18" />
+                                <Label Text="{Binding Descripcion}" FontSize="14" TextColor="Gray" />
+                            </VerticalStackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

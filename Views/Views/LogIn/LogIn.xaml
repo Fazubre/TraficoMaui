@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="TraficoCRFront.Views.LogIn.LogIn"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="LogIn">
+
+    <ContentPage.Content>
+        <Grid BackgroundColor="#DDDAEE" RowDefinitions=".3*,.7*">
+
+            <!-- Encabezado con logo -->
+            <Frame
+                Margin="15,0"
+                Padding="0"
+                BackgroundColor="Transparent"
+                CornerRadius="20"
+                HasShadow="False"
+                HorizontalOptions="FillAndExpand"
+                IsClippedToBounds="True"
+                VerticalOptions="Center">
+                <Image
+                    Aspect="AspectFit"
+                    BackgroundColor="Purple"
+                    Source="logoapp.png" />
+            </Frame>
+
+            <!-- Texto superior -->
+            <StackLayout
+                Grid.Row="0"
+                Margin="10,10,0,20"
+                HorizontalOptions="Start"
+                Orientation="Horizontal"
+                Spacing="10">
+                <Image
+                    HeightRequest="30"
+                    Source="google_maps_pin.png"
+                    WidthRequest="30" />
+                <Label
+                    FontSize="24"
+                    Text="LogIn"
+                    TextColor="#846A93"
+                    VerticalOptions="Center" />
+            </StackLayout>
+
+            <!-- Formulario -->
+            <Frame
+                Grid.Row="1"
+                Margin="12"
+                Padding="15"
+                BackgroundColor="#F6F6F8"
+                CornerRadius="20"
+                HasShadow="True">
+                <StackLayout Spacing="15">
+
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="24"
+                        HorizontalOptions="Center"
+                        Text="Bienvenido!"
+                        TextColor="#333366" />
+
+                    <Label
+                        Margin="0,0,0,10"
+                        HorizontalOptions="Center"
+                        Text="Haga Login para continuar"
+                        TextColor="#666666" />
+
+                    <!-- Email -->
+                    <Frame
+                        Padding="15,5"
+                        BorderColor="#E0E0E0"
+                        CornerRadius="20"
+                        HasShadow="False">
+                        <Grid ColumnDefinitions="Auto,*">
+                            <Image HorizontalOptions="Center">
+                                <Image.Source>
+                                    <FontImageSource
+                                        FontFamily="AwesomeSolid"
+                                        Glyph="&#xf2bd;"
+                                        Size="45"
+                                        Color="#a693d0" />
+                                </Image.Source>
+                            </Image>
+                            <Entry
+                                x:Name="usuarioEntry"
+                                Grid.Column="1"
+                                Margin="5"
+                                BackgroundColor="Transparent"
+                                Placeholder="Username"
+                                PlaceholderColor="#999999"
+                                TextColor="#333333"
+                                VerticalOptions="Center" />
+                        </Grid>
+                    </Frame>
+
+                    <!-- Contraseña -->
+                    <Frame
+                        Padding="15,5"
+                        BorderColor="#E0E0E0"
+                        CornerRadius="20"
+                        HasShadow="False">
+                        <Grid ColumnDefinitions="Auto,*">
+                            <Image HorizontalOptions="Center">
+                                <Image.Source>
+                                    <FontImageSource
+                                        FontFamily="AwesomeSolid"
+                                        Glyph="&#xf084;"
+                                        Size="45"
+                                        Color="#a693d0" />
+                                </Image.Source>
+                            </Image>
+                            <Entry
+                                x:Name="passwordEntry"
+                                Grid.Column="1"
+                                Margin="5"
+                                BackgroundColor="Transparent"
+                                IsPassword="True"
+                                Placeholder="Password"
+                                PlaceholderColor="#999999"
+                                TextColor="#333333"
+                                VerticalOptions="Center" />
+                        </Grid>
+                    </Frame>
+
+                    <!-- Botón de Login -->
+                    <Button
+                        x:Name="loginButton"
+                        Margin="0,10,0,5"
+                        BackgroundColor="#D5488B"
+                        BorderColor="#91364E"
+                        BorderWidth="1"
+                        Clicked="OnLoginClicked"
+                        CornerRadius="20"
+                        HeightRequest="50"
+                        Text="Login"
+                        TextColor="White"
+                        WidthRequest="200" />
+
+                    <!-- Indicador de carga -->
+                    <ActivityIndicator 
+                        x:Name="loadingIndicator" 
+                        IsRunning="False" 
+                        IsVisible="False" 
+                        Color="#D5488B"
+                        HorizontalOptions="Center" />
+
+                    <!-- Olvido contraseña (visual únicamente) -->
+                    <Button
+                        Margin="0,0,0,15"
+                        BackgroundColor="Transparent"
+                        FontSize="14"
+                        HorizontalOptions="Center"
+                        Text="Forgot your password?"
+                        TextColor="#91364E" />
+
+                    <!-- Crear cuenta -->
+                    <Button
+                        BackgroundColor="Transparent"
+                        BorderColor="#91364E"
+                        BorderWidth="1"
+                        Clicked="OnRegisterClicked"
+                        CornerRadius="20"
+                        HeightRequest="50"
+                        Text="Create your account"
+                        TextColor="#D5488B"
+                        WidthRequest="200" />
+
+                </StackLayout>
+            </Frame>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
