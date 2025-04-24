@@ -15,17 +15,17 @@ public partial class VerMapa : ContentPage
 
     private async void OnCrearReporteClicked(object sender, EventArgs e)
     {
-        await Navigation.PushAsync(new MapPage(_client,_user));
+        await Navigation.PushAsync(new MapPage(_client, _user));
     }
 
     private async void OnInicioClicked(object sender, EventArgs e)
     {
-        await Navigation.PushAsync(new MainPage(_client,_user));
+        await Navigation.PushAsync(new MainPage(_client, _user));
     }
 
     private async void OnVerMapaClicked(object sender, EventArgs e)
     {
-        await Navigation.PushAsync(new VerMapa(_client,_user));
+        await Navigation.PushAsync(new VerMapa(_client, _user));
     }
 
     public void OnMapClicked(object sender, MapClickedEventArgs e)
@@ -45,5 +45,10 @@ public partial class VerMapa : ContentPage
         MyMap.Pins.Add(pin);
     }
 
+
+    private async void OnVerPerfilClicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new VerPerfil(_client, _user));
+    }
 
 }

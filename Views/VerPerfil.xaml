@@ -64,10 +64,24 @@
                  VerticalOptions="Center"
                  BackgroundColor="#8888AA" />
 
+                <Frame BackgroundColor="White"
+       CornerRadius="10"
+       Padding="10"
+       BorderColor="#91364E"
+       HorizontalOptions="Center"
+       HasShadow="False">
+                    <Label Text="Reportes realizados: 0"
+                           x:Name="numReportes"
+           FontSize="18"
+           TextColor="#91364E"
+           HorizontalOptions="Center"
+           FontAttributes="Bold" />
+                </Frame>
+
+
                 <Button Margin="0,0,0,20"
                 BackgroundColor="#91364E"
                 CornerRadius="15"
-                
                 HeightRequest="55"
                 VerticalOptions="EndAndExpand"
                 HorizontalOptions="Center"

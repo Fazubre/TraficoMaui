@@ -156,7 +156,8 @@
 				<Button Grid.Row="0"
                        Grid.Column="3"
                        HorizontalOptions="Center"
-                       Background="Transparent">
+                       Background="Transparent
+					   ">
 					<Button.ImageSource>
 						<FontImageSource FontFamily="AwesomeSolid"
                                          Glyph="&#xf0c9;"
@@ -174,8 +175,10 @@
 
 				<Button Grid.Row="0"
                        Grid.Column="4"
+						Clicked="OnVerPerfilClicked"
                        HorizontalOptions="Center"
-                       Background="Transparent">
+                       Background="Transparent"
+						>
 					<Button.ImageSource>
 						<FontImageSource FontFamily="AwesomeSolid"
                                              Glyph="&#xf2bd;"
