@@ -7,12 +7,15 @@ namespace TraficoCRFront.Views
     {
         
         private Location _locacionInci;
-        
 
+        private readonly HttpClient _client;
+        private readonly datosUsuario _user;
 
-        public MapPage()
+        public MapPage(HttpClient client, datosUsuario user)
         {
             InitializeComponent();
+            _client = client;
+            _user = user;
         }
 
         private void OnMapClicked(object sender, MapClickedEventArgs e)
@@ -67,12 +70,12 @@ namespace TraficoCRFront.Views
         
         private async void OnCrearReporteClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new MapPage());
+            await Navigation.PushAsync(new MapPage(_client,_user));
         }
         
         private async void OnInicioClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new MainPage());
+            await Navigation.PushAsync(new MainPage(_client,_user));
         }
         
     }
