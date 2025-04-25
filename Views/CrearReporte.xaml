@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
     <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:maps="http://schemas.microsoft.com/dotnet/2021/maui/maps"
              xmlns:sensors="clr-namespace:Microsoft.Maui.Devices.Sensors;assembly=Microsoft.Maui.Essentials"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="TraficoCRFront.Views.MapPage">
+             x:Class="TraficoCRFront.Views.CrearReporte">
         
         <Grid RowDefinitions="Auto,*,Auto">
       
@@ -77,6 +77,7 @@
                                     <x:String>Inundacion</x:String>
                                     <x:String>Infraestructura Peligrosa</x:String>
                                     <x:String>Vehiculo Bloqueando Calle</x:String>
+                                    <x:String>Caballo muerto</x:String>
                                     <x:String>Otro</x:String>
                                 </x:Array>
                             </Picker.ItemsSource>

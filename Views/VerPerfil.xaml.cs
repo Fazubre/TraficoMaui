@@ -23,7 +23,7 @@ public partial class VerPerfil : ContentPage
 
     private async void OnCrearReporteClicked(object sender, EventArgs e)
     {
-        await Navigation.PushAsync(new MapPage(_client,_user));
+        await Navigation.PushAsync(new CrearReporte(_client,_user));
     }
 
     private async void OnInicioClicked(object sender, EventArgs e)
@@ -44,8 +44,10 @@ public partial class VerPerfil : ContentPage
     private async void OnCerrarSesionClicked(object sender, EventArgs e)
     {
         await DisplayAlert("Cerrar Sesi�n", "La sesi�n se ha cerrado con �xito", "OK");
+
         //eliminar el cookie de autorizacion
         _client.DefaultRequestHeaders.Clear();
+
         await Navigation.PushAsync(new TraficoCRFront.Views.LogIn.LogIn(_client,_user));
     }
 
