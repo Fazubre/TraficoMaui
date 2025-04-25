@@ -15,7 +15,6 @@ namespace TraficoCRFront.Views
             InitializeComponent();
             _client = client;
             _user = user;
-
              CargarEstadisticas(); 
         }
 
@@ -27,14 +26,15 @@ namespace TraficoCRFront.Views
                 var usuariosResponse = await _client.GetAsync("buscarUsuarios?usuario=");
                 if (usuariosResponse.StatusCode == HttpStatusCode.Unauthorized)
                 {
-                    await DisplayAlert("No posee cuenta de administrador", "Por favor inicia sesión de nuevo.", "OK");
-                    await Navigation.PopToRootAsync();
+                    //await DisplayAlert("No posee cuenta de administrador", "Por favor inicia sesión de nuevo.", "OK");
+                    //await Navigation.PopToRootAsync();
+                    tUsuarios.IsVisible = false;
                     return;
                 }
                 else if (usuariosResponse.IsSuccessStatusCode)
                 {
                     var usuarios = await usuariosResponse.Content.ReadFromJsonAsync<List<object>>();
-                    await DisplayAlert("Usuarios", $"Usuarios encontrados: {usuarios?.Count}", "OK");
+                    //await DisplayAlert("Usuarios", $"Usuarios encontrados: {usuarios?.Count}", "OK");
                     labelUsuarios.Text = usuarios?.Count.ToString() ?? "0";
                 }
                 else
@@ -42,7 +42,7 @@ namespace TraficoCRFront.Views
                     await DisplayAlert("Error al cargar usuarios", $"Código: {usuariosResponse.StatusCode}", "OK");
                 }
 
-                // Reportes activos al momento
+                // Reportes en distritos propios activos al momento
                 var activosResponse = await _client.GetAsync("getReportesDistritosPropios");
                 if (activosResponse.StatusCode == HttpStatusCode.Unauthorized)
                 {
@@ -116,11 +116,10 @@ namespace TraficoCRFront.Views
             await Navigation.PushAsync(new GestionUsers(_client, _user));
         }
 
-        //private async void OnGestionReportesClicked(object sender, EventArgs e)
-        //{
-        //    await Navigation.PopToRootAsync();
-        //    await Navigation.PushAsync(new GestionReportes(_client, _user));
-        //}
+        private async void OnGestionReportesClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new GestionReportes(_client, _user));
+        }
 
         //private async void OnReportesClicked(object sender, EventArgs e)
         //{

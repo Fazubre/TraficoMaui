@@ -45,15 +45,44 @@ public partial class VerPerfil : ContentPage
     {
         await DisplayAlert("Cerrar Sesi�n", "La sesi�n se ha cerrado con �xito", "OK");
 
+        //eliminar el cookie de autorizacion
+        _client.DefaultRequestHeaders.Clear();
+
         await Navigation.PushAsync(new TraficoCRFront.Views.LogIn.LogIn(_client,_user));
     }
 
 
+    private async void OnMisReportesClicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new VerReportes(_client, _user));
+    }
+    
     private async void asignarNumReportes()
     {
+        nUsuario.Text = _user.username;
+        string stringrol = "";
+        switch (_user.nivelAcceso)
+        {
+            case 0:
+                stringrol = "Usuario Eliminado";
+                break;
+            case 1:
+                stringrol = "Usuario";
+                break;
+            case 2:
+                stringrol = "Administrador de reportes";
+                break;
+            case 3:
+                stringrol = "Administrador de usuarios";
+                break;
+            case 4:
+                stringrol = "Superadministrador";
+                break;
+        }
+        rol.Text = stringrol;
+        
         try
         {
-            Debug.WriteLine("aqui estoy 1");
 
            //se hace una solicitud a la api a la direccion getReportesPropios
             var response = await _client.GetAsync("getReportesPropios");
@@ -63,14 +92,10 @@ public partial class VerPerfil : ContentPage
             {
                 // se almacena en la variable contenido los valores JSON que devuelva la solicitud
                 var contenido = await response.Content.ReadAsStringAsync();
-
                 //en esta variable "reportes" se almacena una lista con objetos de tipo "Reporte"
                 //se utiliza el metodo JsonSerializer.Deserialize<List<Reporte>> para que deserealice el json que se almacena en la variable contenido
                 var reportes = JsonSerializer.Deserialize<List<Reporte>>(contenido);
-
-
                 int cantidadReportes = 0;
-
                 //se usar el metodo .Count para contabilizar el numero de objetos en la lista llamada reportes
                 cantidadReportes = reportes.Count;
 
