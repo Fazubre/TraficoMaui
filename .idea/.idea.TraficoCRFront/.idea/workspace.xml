@@ -17,8 +17,8 @@
   <component name="ChangeListManager">
     <list default="true" id="8c7f9a93-ef61-4ada-85d0-494d99ffcb42" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TraficoCRFront/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TraficoCRFront/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MauiProgram.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MauiProgram.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/VerPerfil.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/VerPerfil.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/Admin.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Admin.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/Admin.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Admin.xaml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Views/VerPerfil.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Views/VerPerfil.xaml.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -78,18 +78,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Android.TraficoCRFront.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Android.TraficoCRFront.executor": "Run",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="open TraficoCRFront.sln" />
@@ -149,6 +150,7 @@
       <workItem from="1745301773108" duration="304000" />
       <workItem from="1745302094997" duration="3804000" />
       <workItem from="1745548645948" duration="7181000" />
+      <workItem from="1745603198694" duration="1517000" />
     </task>
     <task id="LOCAL-00001" summary="Commit Changes Before massive Pull">
       <option name="closed" value="true" />

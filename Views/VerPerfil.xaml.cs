@@ -75,8 +75,6 @@ public partial class VerPerfil : ContentPage
         
         try
         {
-            Debug.WriteLine("aqui estoy 1");
-
            //se hace una solicitud a la api a la direccion getReportesPropios
             var response = await _client.GetAsync("getReportesPropios");
             
@@ -85,14 +83,10 @@ public partial class VerPerfil : ContentPage
             {
                 // se almacena en la variable contenido los valores JSON que devuelva la solicitud
                 var contenido = await response.Content.ReadAsStringAsync();
-
                 //en esta variable "reportes" se almacena una lista con objetos de tipo "Reporte"
                 //se utiliza el metodo JsonSerializer.Deserialize<List<Reporte>> para que deserealice el json que se almacena en la variable contenido
                 var reportes = JsonSerializer.Deserialize<List<Reporte>>(contenido);
-
-
                 int cantidadReportes = 0;
-
                 //se usar el metodo .Count para contabilizar el numero de objetos en la lista llamada reportes
                 cantidadReportes = reportes.Count;
 

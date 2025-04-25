@@ -64,6 +64,7 @@
                                 RowSpacing="15">
                                 <!--  Tarjeta de Usuarios  -->
                                 <Frame
+                                    x:Name="tUsuarios"
                                     Grid.Row="0"
                                     Grid.Column="0"
                                     Padding="10"
