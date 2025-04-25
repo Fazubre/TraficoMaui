@@ -48,12 +48,15 @@ public partial class VerPerfil : ContentPage
         await Navigation.PushAsync(new TraficoCRFront.Views.LogIn.LogIn(_client,_user));
     }
 
-
+    private async void OnMisReportesClicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new VerReportes(_client, _user));
+    }
     private async void asignarNumReportes()
     {
         try
         {
-            Debug.WriteLine("aqui estoy 1");
+          
 
            //se hace una solicitud a la api a la direccion getReportesPropios
             var response = await _client.GetAsync("getReportesPropios");

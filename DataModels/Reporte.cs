@@ -2,13 +2,21 @@
 
 public class Reporte
 {
-    int id { get; set; }
-    string mensaje { get; set; }
-    float coordenadaX { get; set; }
-    float coordenadaY { get; set; }
-    bool activo { get; set; }
-    int tipoReporte { get; set; }
-    int UsuarioId { get; set; }
-    int calleId { get; set; }
-    int distritoID { get; set; }
+    public int id { get; set; }
+    public string mensaje { get; set; }
+    public float coordenadaX { get; set; }
+    public float coordenadaY { get; set; }
+    public bool activo { get; set; }
+    public int tipoReporte { get; set; }
+    public int UsuarioId { get; set; }
+    public int calleId { get; set; }
+    public int distritoId { get; set; }
+
+    public string? nomDistrito { get; set; }
+
+    public string? nomCanton { get; set; }
+
+    public string? nomProvincia { get; set; }
+
+    public string? nomCalle {  get; set; }
 }

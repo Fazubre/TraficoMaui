@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using CommunityToolkit.Maui;
+using Microsoft.Extensions.Logging;
 using TraficoCRFront.Views.Register;
 
 namespace TraficoCRFront
@@ -18,6 +19,7 @@ namespace TraficoCRFront
                     fonts.AddFont("Lato-Bold.ttf", "bold");
                     fonts.AddFont("Font Awesome Solid.otf", "AwesomeSolid");
                 })
+                .UseMauiCommunityToolkit()
                 .UseMauiMaps();
 
             // ✅ Registra HttpClient como singleton

@@ -34,6 +34,18 @@ namespace TraficoCRFront.Views
             await Navigation.PushAsync(new VerPerfil(_client,_user));
         }
 
+        private async void OnMisReportesClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new VerReportes(_client, _user));
+        }
+
+        private async void OnVerMisReportesClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new VerReportes(_client, _user));
+        }
+
+        
+
     }
 
 }

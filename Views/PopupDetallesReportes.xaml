@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<toolkit:Popup xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+               x:Class="TraficoCRFront.Views.PopupDetallesReportes"
+               Color="Transparent">
+
+    <VerticalStackLayout Padding="0"
+                         Spacing="20"
+                         HorizontalOptions="Center"
+                         VerticalOptions="Center"
+                         WidthRequest="320"
+                         >
+
+        <Frame CornerRadius="20"
+               HasShadow="True"
+               BackgroundColor="White"
+               Padding="25"
+               BorderColor="#91364E">
+
+            <VerticalStackLayout Spacing="15">
+
+                <Label Text="Detalles del Reporte"
+                       FontSize="20"
+                       FontAttributes="Bold"
+                       TextColor="#91364E"
+                       HorizontalOptions="Center" />
+
+                <Label Text="{Binding mensaje, StringFormat='Descripción: {0}'}"
+                       FontSize="16"
+                       TextColor="Black" />
+
+                <Label Text="{Binding coordenadaX, StringFormat='Longitud: {0}'}"
+                       FontSize="16"
+                       TextColor="Black" />
+
+                <Label Text="{Binding coordenadaY, StringFormat='Latitud: {0}'}"
+                       FontSize="16"
+                       TextColor="Black" />
+
+                <Button Text="Cerrar"
+                        Clicked="Cerrar_Clicked"
+                        BackgroundColor="#CF7EAA"
+                        TextColor="White"
+                        CornerRadius="10"
+                        HeightRequest="45"
+                        FontAttributes="Bold" />
+
+            </VerticalStackLayout>
+
+        </Frame>
+
+    </VerticalStackLayout>
+
+</toolkit:Popup>
