@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="TraficoCRFront.Views.Admin"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Panel Administrativo">
+    <ContentPage.Content>
+        <Grid RowDefinitions=".2*,.8*">
+            <!--  Encabezado  -->
+            <Grid BackgroundColor="#a693d0">
+                <StackLayout
+                    Margin="15,10,15,5"
+                    HorizontalOptions="Start"
+                    Orientation="Horizontal"
+                    VerticalOptions="Center">
+                    <Image
+                        HeightRequest="25"
+                        Source="google_maps_pin.png"
+                        WidthRequest="30" />
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="22"
+                        Text="Panel Administrativo"
+                        TextColor="White"
+                        VerticalOptions="Center" />
+                </StackLayout>
+
+                <Button
+                    Margin="0,0,15,0"
+                    BackgroundColor="#91364E"
+                    Clicked="OnLogoutClicked"
+                    FontSize="14"
+                    HorizontalOptions="End"
+                    Text="Cerrar Sesión"
+                    TextColor="White"
+                    VerticalOptions="Center" />
+            </Grid>
+
+            <!--  Contenido principal  -->
+            <ScrollView
+                Grid.Row="1"
+                Margin="0,0,0,0"
+                BackgroundColor="#f0f0f7">
+                <StackLayout Padding="15">
+
+                    <Frame
+                        Margin="0,0,0,15"
+                        Padding="15"
+                        BackgroundColor="White"
+                        CornerRadius="15"
+                        HasShadow="True">
+                        <StackLayout>
+                            <Label
+                                Margin="0,15,0,10"
+                                FontAttributes="Bold"
+                                FontSize="20"
+                                Text="Dashboard"
+                                TextColor="#333366" />
+
+                            <Grid
+                                ColumnDefinitions="*,*"
+                                ColumnSpacing="15"
+                                RowDefinitions="*,*"
+                                RowSpacing="15">
+                                <!--  Tarjeta de Usuarios  -->
+                                <Frame
+                                    Grid.Row="0"
+                                    Grid.Column="0"
+                                    Padding="10"
+                                    BackgroundColor="#f0f0f7"
+                                    CornerRadius="10">
+                                    <StackLayout>
+                                        <Image HorizontalOptions="Start" VerticalOptions="Start">
+                                            <Image.Source>
+                                                <FontImageSource
+                                                    FontFamily="AwesomeSolid"
+                                                    Glyph="&#xf007;"
+                                                    Size="30"
+                                                    Color="#D5488B" />
+                                            </Image.Source>
+                                        </Image>
+                                        <Label
+                                            x:Name="labelUsuarios"
+                                            FontAttributes="Bold"
+                                            FontSize="26"
+                                            Text="0"
+                                            TextColor="#333366" />
+                                        <Label
+                                            FontSize="14"
+                                            Text="Usuarios Registrados"
+                                            TextColor="#666666" />
+                                    </StackLayout>
+                                </Frame>
+
+                                <!--  Tarjeta de Reportes  -->
+                                <Frame
+                                    Grid.Row="0"
+                                    Grid.Column="1"
+                                    Padding="10"
+                                    BackgroundColor="#f0f0f7"
+                                    CornerRadius="10">
+                                    <StackLayout>
+                                        <Image HorizontalOptions="Start" VerticalOptions="Start">
+                                            <Image.Source>
+                                                <FontImageSource
+                                                    FontFamily="AwesomeSolid"
+                                                    Glyph="&#xf51e;"
+                                                    Size="30"
+                                                    Color="#a693d0" />
+                                            </Image.Source>
+                                        </Image>
+                                        <Label
+                                            x:Name="labelActivos"
+                                            FontAttributes="Bold"
+                                            FontSize="26"
+                                            Text="0"
+                                            TextColor="#333366" />
+                                        <Label
+                                            FontSize="14"
+                                            Text="Reportes Activos"
+                                            TextColor="#666666" />
+                                    </StackLayout>
+                                </Frame>
+
+                                <!--  Tarjeta de Reportes Completos  -->
+                                <Frame
+                                    Grid.Row="1"
+                                    Grid.Column="0"
+                                    Grid.ColumnSpan="2"
+                                    Padding="10"
+                                    BackgroundColor="#f0f0f7"
+                                    CornerRadius="10">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Image Margin="10" VerticalOptions="Center">
+                                            <Image.Source>
+                                                <FontImageSource
+                                                    FontFamily="AwesomeSolid"
+                                                    Glyph="&#xf15c;"
+                                                    Size="30"
+                                                    Color="#91364E" />
+                                            </Image.Source>
+                                        </Image>
+                                        <StackLayout
+                                            Margin="15,0,0,0"
+                                            Orientation="Vertical"
+                                            VerticalOptions="Center">
+                                            <Label
+                                                FontSize="16"
+                                                HorizontalOptions="End"
+                                                Text="Reportes completos"
+                                                TextColor="#666666"
+                                                VerticalOptions="Center" />
+                                        </StackLayout>
+                                        <Label
+                                            x:Name="labelCompletos"
+                                            Margin="0,20,45,25"
+                                            FontAttributes="Bold"
+                                            FontSize="26"
+                                            HorizontalOptions="EndAndExpand"
+                                            Text="0"
+                                            TextColor="#333366" />
+                                    </StackLayout>
+                                </Frame>
+
+                            </Grid>
+                        </StackLayout>
+                    </Frame>
+
+                    <Frame
+                        Margin="0,15,0,15"
+                        Padding="15"
+                        BackgroundColor="White"
+                        CornerRadius="15"
+                        HasShadow="True">
+                        <StackLayout>
+                            <Label
+                                Margin="0,0,0,10"
+                                FontAttributes="Bold"
+                                FontSize="20"
+                                Text="Gestión"
+                                TextColor="#333366" />
+
+                            <!--  Opciones de Administración  -->
+                            <Button
+                                Margin="0,5,0,10"
+                                BackgroundColor="#a693d0"
+                                CornerRadius="10"
+                                HeightRequest="45"
+                                Text="Gestionar Usuarios"
+                                Clicked="OnGestionUsersClicked"
+                                TextColor="White" />
+
+                            <Button
+                                Margin="0,0,0,10"
+                                BackgroundColor="#D5488B"
+                                CornerRadius="10"
+                                HeightRequest="45"
+                                Text="Gestionar Reportes"
+                                TextColor="White" />
+                                <!--Clicked="OnGestionReportesClicked"-->
+
+                            <Button
+                                Margin="0,0,0,10"
+                                BackgroundColor="#91364E"
+                                CornerRadius="10"
+                                HeightRequest="45"
+                                Text="Reportes completos"
+                                TextColor="White" />
+                                <!--Clicked="OnReportesClicked"-->
+
+
+                        </StackLayout>
+                    </Frame>
+
+
+                </StackLayout>
+            </ScrollView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
