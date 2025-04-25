@@ -1,9 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="TraficoCRFront.Views.MainPage"
-             Title="Inicio">
-
+             x:Class="TraficoCRFront.Views.VerPerfil"
+             Title="Perfil de Usuario">
     <Grid>
 
         <Grid.RowDefinitions>
@@ -23,7 +22,7 @@
                BorderColor="#EEEEF2"
                Margin="15"
                Padding="20"
-               HeightRequest="350">
+               HeightRequest="550">
 
             <Frame.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
@@ -38,39 +37,59 @@
                         Radius="8"
                         Opacity="0.8" />
             </Frame.Shadow>
-            <StackLayout Spacing="15">
-                <Label Text="Bienvenido"
-                       TextColor="#444466"
-                       FontSize="32"
+            
+            
+            <StackLayout Spacing="10">
+
+                <Label HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       Text="&#xf2bd;"
+                       FontFamily="AwesomeSolid"
+                       FontSize="75"
+                       TextColor="#91364E">
+                </Label>
+
+                <Label Text="Usuario"
+                       TextColor="#2B2B4C"
+                       FontSize="24"
                        HorizontalOptions="Center"
-                       FontAttributes="Bold"
-                       Margin="0,0,0,10" />
+                       FontAttributes="Bold"/>
 
-                <Button Margin="10,5,10,5"
-                        BackgroundColor="#91364E"
-                        CornerRadius="25"
-                        HeightRequest="55"
-                        Text="Crear un nuevo Reporte"
-                        TextColor="White"
-                        FontAttributes="Bold"
-                        FontSize="16"
-                        Clicked="OnCrearReporteClicked">
-                    <Button.Shadow>
-                        <Shadow Brush="Black"
-                        Offset="0,3"
-                        Radius="10"
-                        Opacity="0.9" />
-                    </Button.Shadow>
-                </Button>
+                <Label Text="Rol de usuario"
+                       TextColor="#8888AA"
+                       FontSize="18"
+                       HorizontalOptions="Center"/>
 
-                <Button Margin="10,5,10,5"
-                BackgroundColor="#B4A8DB"
-                CornerRadius="25"
+                <BoxView HeightRequest="1"
+                 VerticalOptions="Center"
+                 BackgroundColor="#8888AA" />
+
+                <Frame BackgroundColor="White"
+       CornerRadius="10"
+       Padding="10"
+       BorderColor="#91364E"
+       HorizontalOptions="Center"
+       HasShadow="False">
+                    <Label Text="Reportes realizados: 0"
+                           x:Name="numReportes"
+           FontSize="18"
+           TextColor="#91364E"
+           HorizontalOptions="Center"
+           FontAttributes="Bold" />
+                </Frame>
+
+
+                <Button Margin="0,0,0,20"
+                BackgroundColor="#91364E"
+                CornerRadius="15"
                 HeightRequest="55"
-                Text="Ver mis Reportes"
+                VerticalOptions="EndAndExpand"
+                HorizontalOptions="Center"
+                Text="Cerrar Sesión"
                 TextColor="White"
                 FontAttributes="Bold"
-                FontSize="16">
+                FontSize="16"
+                Clicked="OnCerrarSesionClicked">
                     <Button.Shadow>
                         <Shadow Brush="Black"
                         Offset="0,3"
@@ -78,16 +97,21 @@
                         Opacity="0.9" />
                     </Button.Shadow>
                 </Button>
+
+
+
+
             </StackLayout>
         </Frame>
 
-        <Frame Grid.Row="1" 
-           HeightRequest="60" 
-           BackgroundColor="#DDDAEE"
-           CornerRadius="0"
-           Padding="0"
-           HasShadow="True">
+        <!--Footer-->
 
+        <Frame Grid.Row="1" 
+               HeightRequest="60" 
+               BackgroundColor="#DDDAEE"
+               CornerRadius="0"
+               Padding="0"
+               HasShadow="True">
 
             <Grid>
                 <Grid.RowDefinitions>
@@ -103,43 +127,40 @@
                     <ColumnDefinition></ColumnDefinition>
                 </Grid.ColumnDefinitions>
 
-
-                <Frame Grid.Column="0" 
+                <Frame Grid.Column="4" 
                        Grid.Row="0" 
                        Grid.RowSpan="2"
                        BorderColor="Transparent"
                        CornerRadius="0"
                        BackgroundColor="#B4A8DB"
                        Margin="0,0,0,0"></Frame>
+
                 <Button Grid.Column="0"
-                       Grid.Row="0"
-                       Clicked="OnInicioClicked"
-                       HorizontalOptions="Center"
-                       Background="Transparent">
+                        Grid.Row="0"
+                        Clicked="OnInicioClicked"
+                        HorizontalOptions="Center"
+                        Background="Transparent">
                     <Button.ImageSource>
                         <FontImageSource FontFamily="AwesomeSolid"
                                          Glyph="&#xf015;"
                                          Size="25"
                                          Color="#a693d0"/>
                     </Button.ImageSource>
-
                 </Button>
 
                 <Label Text="Inicio"
-                           Grid.Column="0"
-                           Grid.Row="1"
-                           FontSize="10"
-                           HorizontalOptions="Center"
-                           TextColor="#444466"
-                           Margin="0,0,0,7"/>
-
+                       Grid.Column="0"
+                       Grid.Row="1"
+                       FontSize="10"
+                       HorizontalOptions="Center"
+                       TextColor="#444466"
+                       Margin="0,0,0,7"/>
 
                 <Button Grid.Column="1"
-
-                       Grid.Row="0"
-                       Clicked="OnCrearReporteClicked"
-                       HorizontalOptions="Center"
-                       Background="Transparent">
+                        Grid.Row="0"
+                        Clicked="OnCrearReporteClicked"
+                        HorizontalOptions="Center"
+                        Background="Transparent">
                     <Button.ImageSource>
                         <FontImageSource FontFamily="AwesomeSolid"
                                          Glyph="&#xf276;"
@@ -149,24 +170,22 @@
                 </Button>
 
                 <Label Text="Nuevo Reporte"
-                           Grid.Column="1"
-                           Grid.Row="1"
-                           FontSize="10"
-                           HorizontalOptions="Center"
-                           TextColor="#444466"/>
-
+                       Grid.Column="1"
+                       Grid.Row="1"
+                       FontSize="10"
+                       HorizontalOptions="Center"
+                       TextColor="#444466"/>
 
                 <Button Grid.Row="0"
-                         Clicked="OnVerMapaClicked"
-                       Grid.Column="2"
-                       HorizontalOptions="Center"
-                       Background="Transparent">
+                        Clicked="OnVerMapaClicked"
+                        Grid.Column="2"
+                        HorizontalOptions="Center"
+                        Background="Transparent">
                     <Button.ImageSource>
                         <FontImageSource FontFamily="AwesomeSolid"
-                                             Glyph="&#xf5a0;"
-                                             Size="25"
-                                             Color="#a693d0"/>
-
+                                         Glyph="&#xf5a0;"
+                                         Size="25"
+                                         Color="#a693d0"/>
                     </Button.ImageSource>
                 </Button>
 
@@ -175,14 +194,12 @@
                        Grid.Row="1"
                        FontSize="10"
                        HorizontalOptions="Center"
-                       TextColor="#444466"
-                       />
+                       TextColor="#444466"/>
 
                 <Button Grid.Row="0"
-                       Grid.Column="3"
-                       HorizontalOptions="Center"
-                       Background="Transparent"
-                       >
+                        Grid.Column="3"
+                        HorizontalOptions="Center"
+                        Background="Transparent">
                     <Button.ImageSource>
                         <FontImageSource FontFamily="AwesomeSolid"
                                          Glyph="&#xf0c9;"
@@ -199,15 +216,15 @@
                        TextColor="#444466"/>
 
                 <Button Grid.Row="0"
-                       Grid.Column="4"
-                       HorizontalOptions="Center"
-                       Background="Transparent"
-                       Clicked="OnVerPerfilClicked">
+                        Grid.Column="4"
+                        HorizontalOptions="Center"
+                        Background="Transparent"
+                        Clicked="OnVerPerfilClicked">
                     <Button.ImageSource>
                         <FontImageSource FontFamily="AwesomeSolid"
-                                             Glyph="&#xf2bd;"
-                                             Size="25"
-                                             Color="#a693d0"/>
+                                         Glyph="&#xf2bd;"
+                                         Size="25"
+                                         Color="#a693d0"/>
                     </Button.ImageSource>
                 </Button>
 

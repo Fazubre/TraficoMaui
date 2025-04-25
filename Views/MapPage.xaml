@@ -76,6 +76,7 @@
                                     <x:String>Deslizamiento</x:String>
                                     <x:String>Inundacion</x:String>
                                     <x:String>Infraestructura Peligrosa</x:String>
+                                    <x:String>Vehiculo Bloqueando Calle</x:String>
                                     <x:String>Otro</x:String>
                                 </x:Array>
                             </Picker.ItemsSource>
