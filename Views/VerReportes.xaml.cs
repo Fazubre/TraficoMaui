@@ -74,6 +74,7 @@ public partial class VerReportes : ContentPage
                 reportes[i].nomDistrito = datosDistritoIdByRequest.nombreDistrito;
                 reportes[i].nomCanton = datosCantonIdByRequest.nombreCanton;
                 reportes[i].nomProvincia = await getProvinciaByIdRequest(datosCantonIdByRequest.idProvincia.ToString());
+                reportes[i].nomCalle = await getCalleByIdRequest(reportes[i].calleId.ToString());
                
             }
            
@@ -94,6 +95,52 @@ public partial class VerReportes : ContentPage
     private async void OnMisReportesClicked(object sender, EventArgs e)
     {
         await Navigation.PushAsync(new VerReportes(_client, _user));
+    }
+
+    private async Task<string> getCalleByIdRequest(string idCalle)
+    {
+        try
+        {
+            string id = idCalle;
+            Debug.WriteLine("id de la provincia" + id);
+
+            // Construir la URL con el parámetro 'id'
+            string url = $"getCalleById?id={id}";
+
+            Debug.WriteLine(url);
+            Debug.WriteLine(id);
+
+
+            var response = await _client.GetAsync(url);
+
+
+            if (response.IsSuccessStatusCode)
+            {
+
+                var contenido = await response.Content.ReadAsStringAsync();
+
+
+                // Deserializar el JSON en un JsonElement
+                JsonDocument doc = JsonDocument.Parse(contenido);
+
+                JsonElement root = doc.RootElement;
+
+                string nombreCalle = root.GetProperty("nombreCalle").GetString();
+
+                return nombreCalle;
+
+            }
+            else
+            {
+                Console.WriteLine($"Error en la solicitud: aaa {response.StatusCode}");
+                return null;
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Excepción durante la solicitud: {ex.Message}");
+            return null;
+        }
     }
 
     private async Task<string> getProvinciaByIdRequest(string idProvincia)
