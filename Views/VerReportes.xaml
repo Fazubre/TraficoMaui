@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TraficoCRFront.Views.VerReportes"
+             Title="Mis Reportes">
+	<Grid>
+
+		<Grid.RowDefinitions>
+			<RowDefinition Height="*" />
+			<RowDefinition Height="Auto" />
+		</Grid.RowDefinitions>
+
+		<Image Source="carretera.jpg"
+               Aspect="AspectFill"
+               HorizontalOptions="FillAndExpand"
+               VerticalOptions="FillAndExpand"
+               Opacity="0.7"/>
+
+		<Frame BackgroundColor="#F8F7FC"
+               CornerRadius="15"
+               HasShadow="True"
+               BorderColor="#EEEEF2"
+               Margin="15"
+               Padding="20"
+               HeightRequest="650">
+
+		
+
+
+			
+			<Frame.Background>
+				<LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+					<GradientStop Color="#F6F6F8" Offset="0.0"/>
+					<GradientStop Color="LightGray" Offset="1.0" />
+				</LinearGradientBrush>
+			</Frame.Background>
+
+			<Frame.Shadow>
+				<Shadow Brush="Black"
+                        Offset="0,4"
+                        Radius="8"
+                        Opacity="0.8" />
+			</Frame.Shadow>
+			
+
+			
+			
+			<CollectionView x:Name="ReportesCollectionView">
+
+				<CollectionView.EmptyView>
+					<Label Text="No hay reportes disponibles."
+						   HorizontalOptions="Center"
+						   VerticalOptions="Center"
+						   FontSize="16"
+						   TextColor="Gray"
+						   Margin="20"/>
+				</CollectionView.EmptyView>
+				<CollectionView.ItemTemplate>
+					<DataTemplate>
+						<Frame BorderColor="#B4A8DB" CornerRadius="10" Margin="5" Padding="10">
+							<Frame.Shadow>
+								<Shadow Brush="Black"
+										Offset="0,4"
+										Radius="8"
+										Opacity="0.8" />
+							</Frame.Shadow>
+							<VerticalStackLayout Spacing="5">
+								<Label Text="{Binding id, StringFormat='REPORTE #{0}'}" FontAttributes="Bold" FontSize="15"/>
+								<Label Text="{Binding nomProvincia, StringFormat='Provincia: {0}'}"/>
+								<Label Text="{Binding nomCanton, StringFormat='Canton: {0}'}"/>
+								<Label Text="{Binding nomDistrito, StringFormat='Distrito: {0}'}"/>
+
+								<HorizontalStackLayout>
+									<Button Margin="0,0,0,0"
+											BackgroundColor="#91364E"
+											CornerRadius="15"
+											HeightRequest="35"
+									        HorizontalOptions="EndAndExpand"
+											VerticalOptions="EndAndExpand"
+											Text="Ver Detalles"
+											TextColor="White"
+											FontAttributes="Bold"
+											FontSize="13"
+											Clicked="OnVerDetallesClicked"
+									     	CommandParameter="{Binding}" >
+										<Button.Shadow>
+											<Shadow Brush="Black"
+											Offset="0,3"
+											Radius="10"
+											Opacity="0.9" />
+										</Button.Shadow>
+									</Button >
+								</HorizontalStackLayout>
+
+							</VerticalStackLayout>
+
+						</Frame>
+					</DataTemplate>
+				</CollectionView.ItemTemplate>
+			</CollectionView>
+			
+
+
+		</Frame>
+
+		<!--Footer-->
+
+		<Frame Grid.Row="1"
+               HeightRequest="60"
+               BackgroundColor="#DDDAEE"
+               CornerRadius="0"
+               Padding="0"
+               HasShadow="True">
+
+			<Grid>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="*" />
+					<RowDefinition Height="Auto"/>
+				</Grid.RowDefinitions>
+
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition></ColumnDefinition>
+					<ColumnDefinition></ColumnDefinition>
+					<ColumnDefinition></ColumnDefinition>
+					<ColumnDefinition></ColumnDefinition>
+					<ColumnDefinition></ColumnDefinition>
+				</Grid.ColumnDefinitions>
+
+				<Frame Grid.Column="3"
+                       Grid.Row="0"
+                       Grid.RowSpan="2"
+                       BorderColor="Transparent"
+                       CornerRadius="0"
+                       BackgroundColor="#B4A8DB"
+                       Margin="0,0,0,0"></Frame>
+
+				<Button Grid.Column="0"
+                        Grid.Row="0"
+                        Clicked="OnInicioClicked"
+                        HorizontalOptions="Center"
+                        Background="Transparent">
+					<Button.ImageSource>
+						<FontImageSource FontFamily="AwesomeSolid"
+                                         Glyph="&#xf015;"
+                                         Size="25"
+                                         Color="#a693d0"/>
+					</Button.ImageSource>
+				</Button>
+
+				<Label Text="Inicio"
+                       Grid.Column="0"
+                       Grid.Row="1"
+                       FontSize="10"
+                       HorizontalOptions="Center"
+                       TextColor="#444466"
+                       Margin="0,0,0,7"/>
+
+				<Button Grid.Column="1"
+                        Grid.Row="0"
+                        Clicked="OnCrearReporteClicked"
+                        HorizontalOptions="Center"
+                        Background="Transparent">
+					<Button.ImageSource>
+						<FontImageSource FontFamily="AwesomeSolid"
+                                         Glyph="&#xf276;"
+                                         Size="25"
+                                         Color="#a693d0"/>
+					</Button.ImageSource>
+				</Button>
+
+				<Label Text="Nuevo Reporte"
+                       Grid.Column="1"
+                       Grid.Row="1"
+                       FontSize="10"
+                       HorizontalOptions="Center"
+                       TextColor="#444466"/>
+
+				<Button Grid.Row="0"
+                        Clicked="OnVerMapaClicked"
+                        Grid.Column="2"
+                        HorizontalOptions="Center"
+                        Background="Transparent">
+					<Button.ImageSource>
+						<FontImageSource FontFamily="AwesomeSolid"
+                                         Glyph="&#xf5a0;"
+                                         Size="25"
+                                         Color="#a693d0"/>
+					</Button.ImageSource>
+				</Button>
+
+				<Label Text="Ver Mapa"
+                       Grid.Column="2"
+                       Grid.Row="1"
+                       FontSize="10"
+                       HorizontalOptions="Center"
+                       TextColor="#444466"/>
+
+				<Button Grid.Row="0"
+                        Grid.Column="3"
+                        HorizontalOptions="Center"
+						Clicked="OnMisReportesClicked"
+                        Background="Transparent">
+					<Button.ImageSource>
+						<FontImageSource FontFamily="AwesomeSolid"
+                                         Glyph="&#xf0c9;"
+                                         Size="25"
+                                         Color="#a693d0"/>
+					</Button.ImageSource>
+				</Button>
+
+				<Label Text="Mis Reportes"
+                       Grid.Column="3"
+                       Grid.Row="1"
+                       FontSize="10"
+                       HorizontalOptions="Center"
+                       TextColor="#444466"/>
+
+				<Button Grid.Row="0"
+                        Grid.Column="4"
+                        HorizontalOptions="Center"
+                        Background="Transparent"
+                        Clicked="OnVerPerfilClicked">
+					<Button.ImageSource>
+						<FontImageSource FontFamily="AwesomeSolid"
+                                         Glyph="&#xf2bd;"
+                                         Size="25"
+                                         Color="#a693d0"/>
+					</Button.ImageSource>
+				</Button>
+
+				<Label Text="Perfil"
+                       Grid.Column="4"
+                       Grid.Row="1"
+                       FontSize="10"
+                       HorizontalOptions="Center"
+                       TextColor="#444466"/>
+			</Grid>
+
+		</Frame>
+
+	</Grid>
+</ContentPage>
