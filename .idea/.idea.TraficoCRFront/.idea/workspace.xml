@@ -16,14 +16,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8c7f9a93-ef61-4ada-85d0-494d99ffcb42" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/DataModels/NivelAcceso.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DataModels/Reporte.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datosUsuario.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TraficoCRFront/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TraficoCRFront/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/App.xaml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MauiProgram.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MauiProgram.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/LogIn/LogIn.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Views/LogIn/LogIn.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/Register/Register.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Register/Register.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/VerPerfil.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/VerPerfil.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/VerPerfil.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Views/VerPerfil.xaml.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +32,9 @@
   <component name="Git.Settings">
     <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map />
+      <map>
+        <entry key="$PROJECT_DIR$" value="backup-ojala-que-nada-explote-por-el-amor-de-dios" />
+      </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -58,7 +56,7 @@
     <setting file="file://$PROJECT_DIR$/App.xaml.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AppShell.xaml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AppShell.xaml.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Platforms/Android/MainActivity.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Platforms/Android/MainActivity.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Views/LogIn/LogIn.xaml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Views/LogIn/LogIn.xaml.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -150,6 +148,7 @@
       <workItem from="1745295579254" duration="6103000" />
       <workItem from="1745301773108" duration="304000" />
       <workItem from="1745302094997" duration="3804000" />
+      <workItem from="1745548645948" duration="7181000" />
     </task>
     <task id="LOCAL-00001" summary="Commit Changes Before massive Pull">
       <option name="closed" value="true" />
