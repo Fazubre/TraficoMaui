@@ -11,7 +11,7 @@ namespace TraficoCRFront
             InitializeComponent();
             Routing.RegisterRoute("LogIn", typeof(LogIn));
             Routing.RegisterRoute("MainPage", typeof(MainPage));
-            Routing.RegisterRoute("MapPage", typeof(MapPage));
+            Routing.RegisterRoute("CrearReporte", typeof(CrearReporte));
             Routing.RegisterRoute("Register", typeof(Register));  
         }
     }

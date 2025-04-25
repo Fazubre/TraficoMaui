@@ -15,15 +15,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8c7f9a93-ef61-4ada-85d0-494d99ffcb42" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/DataModels/NivelAcceso.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DataModels/Reporte.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datosUsuario.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.TraficoCRFront/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TraficoCRFront/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/App.xaml.cs" afterDir="false" />
+    <list default="true" id="8c7f9a93-ef61-4ada-85d0-494d99ffcb42" name="Changes" comment="ni puta dea q es esto">
+      <change afterPath="$PROJECT_DIR$/Views/CrearReporte.xaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Views/CrearReporte.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppShell.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/AppShell.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppShell.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AppShell.xaml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MauiProgram.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MauiProgram.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/LogIn/LogIn.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Views/LogIn/LogIn.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TraficoCRFront.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/TraficoCRFront.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/MainPage.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Views/MainPage.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/MapPage.xaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/MapPage.xaml.cs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Views/Register/Register.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Register/Register.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/VerMapa.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Views/VerMapa.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/VerPerfil.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Views/VerPerfil.xaml.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,18 +84,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Android.TraficoCRFront.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Android.TraficoCRFront.executor": "Run",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "tengo-sueño.3",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="open TraficoCRFront.sln" />
@@ -232,6 +236,7 @@
     <MESSAGE value="Commit Changes Before massive Pull" />
     <MESSAGE value="Added the correct connection to the API" />
     <MESSAGE value="functional login" />
-    <option name="LAST_COMMIT_MESSAGE" value="functional login" />
+    <MESSAGE value="ni puta dea q es esto" />
+    <option name="LAST_COMMIT_MESSAGE" value="ni puta dea q es esto" />
   </component>
 </project>

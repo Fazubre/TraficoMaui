@@ -15,7 +15,7 @@ namespace TraficoCRFront.Views
 
         private async void OnCrearReporteClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new MapPage(_client, _user));
+            await Navigation.PushAsync(new CrearReporte(_client, _user));
         }
 
         private async void OnInicioClicked(object sender, EventArgs e)

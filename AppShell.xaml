@@ -14,6 +14,6 @@
         Route="MainPage" />
     <ShellContent
     Title="Map"
-    ContentTemplate="{DataTemplate views:MapPage}"
-    Route="MapPage" />
+    ContentTemplate="{DataTemplate views:CrearReporte}"
+    Route="CrearReporte" />
 </Shell>

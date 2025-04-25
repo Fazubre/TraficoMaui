@@ -23,7 +23,7 @@ public partial class VerPerfil : ContentPage
 
     private async void OnCrearReporteClicked(object sender, EventArgs e)
     {
-        await Navigation.PushAsync(new MapPage(_client,_user));
+        await Navigation.PushAsync(new CrearReporte(_client,_user));
     }
 
     private async void OnInicioClicked(object sender, EventArgs e)
@@ -43,7 +43,7 @@ public partial class VerPerfil : ContentPage
 
     private async void OnCerrarSesionClicked(object sender, EventArgs e)
     {
-        await DisplayAlert("Cerrar Sesión", "La sesión se ha cerrado con éxito", "OK");
+        await DisplayAlert("Cerrar Sesiï¿½n", "La sesiï¿½n se ha cerrado con ï¿½xito", "OK");
 
         await Navigation.PushAsync(new TraficoCRFront.Views.LogIn.LogIn(_client,_user));
     }
@@ -91,7 +91,7 @@ public partial class VerPerfil : ContentPage
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Excepción durante la solicitud: {ex.Message}");
+            Console.WriteLine($"Excepciï¿½n durante la solicitud: {ex.Message}");
         }
 
     }
