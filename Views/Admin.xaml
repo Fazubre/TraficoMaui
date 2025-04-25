@@ -196,8 +196,8 @@
                                 CornerRadius="10"
                                 HeightRequest="45"
                                 Text="Gestionar Reportes"
+                                Clicked="OnGestionReportesClicked"
                                 TextColor="White" />
-                                <!--Clicked="OnGestionReportesClicked"-->
 
                             <Button
                                 Margin="0,0,0,10"
