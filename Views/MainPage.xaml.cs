@@ -11,8 +11,16 @@ namespace TraficoCRFront.Views
             InitializeComponent();
             _client = client;
             _user = user;
+            InicializarImagen();
         }
 
+        private async void InicializarImagen()
+        {
+            string[] listaimagenes = { "dossiete.jpg", "tresdos.jpg","cerro_de_la_muerte.jpg","costanera_sur.jpg","monteverde.jpg","rohrmoser.jpg" };
+            var random = new Random();
+            int index = random.Next(listaimagenes.Length);
+            Imagen.Source = listaimagenes[index];
+        }
         private async void OnCrearReporteClicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new CrearReporte(_client, _user));
