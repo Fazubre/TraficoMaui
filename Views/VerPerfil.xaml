@@ -10,7 +10,8 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <Image Source="carretera.jpg"
+        <Image Source="dossiete.jpg"
+               x:Name="Imagen"
                Aspect="AspectFill"
                HorizontalOptions="FillAndExpand"
                VerticalOptions="FillAndExpand"
