@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="TraficoCRFront.Views.Gestion.GestionUsers"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Gestión de Usuarios">
+
+    <Grid Padding="20" RowDefinitions="Auto,*,Auto" BackgroundColor="#DDDAEE">
+
+        <StackLayout
+            Grid.Row="0"
+            HorizontalOptions="End"
+            Orientation="Horizontal">
+            <Button
+                Margin="10,10,10,10"
+                BackgroundColor="#91364E"
+                Clicked="OnVolverClicked"
+                Text="Volver"
+                TextColor="White" />
+        </StackLayout>
+
+        <StackLayout Grid.Row="1">
+            <ActivityIndicator
+                x:Name="loadingIndicator"
+                IsRunning="False"
+                IsVisible="False" />
+
+            <Label
+                x:Name="mensajeVacio"
+                HorizontalOptions="Center"
+                IsVisible="False"
+                Text="No se encontraron usuarios."
+                VerticalOptions="Center" />
+            <!--Niveles de acceso explicacion-->
+            <Frame BorderColor="#91364E" BackgroundColor="#f0f0f7" CornerRadius="10" Padding="10" Margin="10">
+                <VerticalStackLayout>
+                    <Label Text="Niveles de Acceso"
+               FontAttributes="Bold"
+               FontSize="Medium"
+               TextColor="Black"
+               HorizontalOptions="Center" />
+                    <Label Text="• 1 - Usuario común: acceso solo a sus propios reportes." 
+               FontSize="Small"
+               TextColor="Black" />
+                    <Label Text="• 2 - Moderador: acceso a reportes y usuarios de su región."
+               FontSize="Small"
+               TextColor="Black" />
+                    <Label Text="• 3 - Administrador: acceso total a usuarios y reportes."
+               FontSize="Small"
+               TextColor="Black" />
+                    <Label Text="• 4 - Super Administrador: puede promover un usuario a administrador o super administrador"
+               FontSize="Small"
+               TextColor="Black" />
+                </VerticalStackLayout>
+            </Frame>
+
+
+            <ListView x:Name="usuariosListView" RowHeight="60">
+                <ListView.Header>
+                    <Grid
+                        Padding="10"
+                        BackgroundColor="#F5F5F5"
+                        ColumnDefinitions="*, *">
+                        <Label
+                            Grid.Column="0"
+                            FontAttributes="Bold"
+                            Text="Nombre de Usuario" />
+                        <Label
+                            Grid.Column="1"
+                            FontAttributes="Bold"
+                            Text="Nivel de Acceso" />
+                    </Grid>
+                </ListView.Header>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Padding="10" ColumnDefinitions="*, *">
+                                <Label Grid.Column="0" Text="{Binding Username}" />
+                                <Label Grid.Column="1" Text="{Binding NivelAcceso}" />
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+
+        
+    </Grid>
+
+</ContentPage>
