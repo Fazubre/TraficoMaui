@@ -31,7 +31,7 @@
                     <GradientStop Color="LightGray" Offset="1.0" />
                 </LinearGradientBrush>
             </Frame.Background>
-            
+
             <Frame.Shadow>
                 <Shadow Brush="Black"
                         Offset="0,4"
@@ -72,6 +72,23 @@
                 FontAttributes="Bold"
                 Clicked="OnVerMisReportesClicked"
                 FontSize="16">
+                    <Button.Shadow>
+                        <Shadow Brush="Black"
+                        Offset="0,3"
+                        Radius="10"
+                        Opacity="0.9" />
+                    </Button.Shadow>
+                </Button>
+
+                <Button Margin="10,5,10,5"
+                BackgroundColor="#D5488B"
+                CornerRadius="25"
+                HeightRequest="55"
+                Text="Admin Panel"
+                TextColor="White"
+                FontAttributes="Bold"
+                FontSize="16"
+                Clicked="OnAdminClicked">
                     <Button.Shadow>
                         <Shadow Brush="Black"
                         Offset="0,3"

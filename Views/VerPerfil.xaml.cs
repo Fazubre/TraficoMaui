@@ -43,17 +43,42 @@ public partial class VerPerfil : ContentPage
 
     private async void OnCerrarSesionClicked(object sender, EventArgs e)
     {
-        await DisplayAlert("Cerrar Sesión", "La sesión se ha cerrado con éxito", "OK");
-
+        await DisplayAlert("Cerrar Sesiï¿½n", "La sesiï¿½n se ha cerrado con ï¿½xito", "OK");
+        //eliminar el cookie de autorizacion
+        _client.DefaultRequestHeaders.Clear();
         await Navigation.PushAsync(new TraficoCRFront.Views.LogIn.LogIn(_client,_user));
     }
+
 
     private async void OnMisReportesClicked(object sender, EventArgs e)
     {
         await Navigation.PushAsync(new VerReportes(_client, _user));
     }
+    
     private async void asignarNumReportes()
     {
+        nUsuario.Text = _user.username;
+        string stringrol = "";
+        switch (_user.nivelAcceso)
+        {
+            case 0:
+                stringrol = "Usuario Eliminado";
+                break;
+            case 1:
+                stringrol = "Usuario";
+                break;
+            case 2:
+                stringrol = "Administrador de reportes";
+                break;
+            case 3:
+                stringrol = "Administrador de usuarios";
+                break;
+            case 4:
+                stringrol = "Superadministrador";
+                break;
+        }
+        rol.Text = stringrol;
+        
         try
         {
           
@@ -94,7 +119,7 @@ public partial class VerPerfil : ContentPage
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Excepción durante la solicitud: {ex.Message}");
+            Console.WriteLine($"Excepciï¿½n durante la solicitud: {ex.Message}");
         }
 
     }

@@ -49,13 +49,15 @@
                        TextColor="#91364E">
                 </Label>
 
-                <Label Text="Usuario"
+                <Label Text=""
+                       x:Name="nUsuario"
                        TextColor="#2B2B4C"
                        FontSize="24"
                        HorizontalOptions="Center"
                        FontAttributes="Bold"/>
 
                 <Label Text="Rol de usuario"
+                       x:Name="rol"
                        TextColor="#8888AA"
                        FontSize="18"
                        HorizontalOptions="Center"/>

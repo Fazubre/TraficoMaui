@@ -102,5 +102,11 @@ namespace TraficoCRFront.Views.LogIn
         {
             await Navigation.PushAsync(new Register.Register(_client));
         }
+        public void LimpiarCampos()
+        {
+            usuarioEntry.Text = string.Empty;
+            passwordEntry.Text = string.Empty;
+        }
+
     }
 }

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="TraficoCRFront.Views.Gestion.GestionUsers"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Gestión de Usuarios">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="20"
+            BackgroundColor="#EAE8F9"
+            Spacing="20">
+
+            <!--  Título  -->
+            <Label
+                FontAttributes="Bold"
+                FontSize="24"
+                HorizontalOptions="Center"
+                Text="Gestión de Usuarios"
+                TextColor="#701A3F" />
+
+            <!--  Cuadro de explicación  -->
+            <Frame
+                Padding="15"
+                BackgroundColor="#FFFFFF"
+                BorderColor="#701A3F"
+                CornerRadius="12">
+                <VerticalStackLayout Spacing="5">
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="18"
+                        HorizontalOptions="Center"
+                        Text="Niveles de Acceso"
+                        TextColor="#701A3F" />
+                    <Label Text="• 1 - Usuario común: acceso solo a sus propios reportes." TextColor="#701A3F" />
+                    <Label Text="• 2 - Moderador: acceso a reportes y usuarios de su región." TextColor="#701A3F" />
+                    <Label Text="• 3 - Administrador: acceso total a usuarios y reportes." TextColor="#701A3F" />
+                    <Label Text="• 4 - Super Administrador: puede promover usuarios a administrador o super." TextColor="#701A3F" />
+                </VerticalStackLayout>
+            </Frame>
+
+            <!--  Buscador  -->
+            <HorizontalStackLayout Spacing="10">
+                <Entry
+                    x:Name="busquedaEntry"
+                    BackgroundColor="White"
+                    Placeholder="Buscar usuario por nombre"
+                    TextColor="#2E2E2E"
+                    WidthRequest="220" />
+                <Button
+                    BackgroundColor="#701A3F"
+                    Clicked="OnBuscarClicked"
+                    CornerRadius="10"
+                    Text="Buscar"
+                    TextColor="White" />
+            </HorizontalStackLayout>
+
+            <!--  Encabezado tipo tabla  -->
+            <Frame
+                Padding="10"
+                BackgroundColor="#F175A9"
+                BorderColor="#701A3F"
+                CornerRadius="20">
+                <Grid Padding="10" ColumnDefinitions="*,Auto,Auto">
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="14"
+                        Text="Usuario"
+                        TextColor="#701A3F" />
+                    <Label
+                        Grid.Column="0"
+                        FontAttributes="Bold"
+                        FontSize="14"
+                        HorizontalOptions="Center"
+                        Text="Acceso"
+                        TextColor="#701A3F" />
+                    <Label
+                        Grid.Column="2"
+                        FontAttributes="Bold"
+                        FontSize="14"
+                        HorizontalOptions="End"
+                        Text="Acciones"
+                        TextColor="#701A3F" />
+                </Grid>
+            </Frame>
+
+            <!--  Lista de usuarios  -->
+            <Frame BorderColor="#701A3F" CornerRadius="20">
+                <CollectionView
+                    x:Name="usuariosListView"
+                    BackgroundColor="Transparent"
+                    SelectionMode="None">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid
+                                Margin="0,0,0,1"
+                                Padding="10"
+                                BackgroundColor="White"
+                                ColumnDefinitions="*,Auto,Auto">
+                                <Label
+                                    FontSize="16"
+                                    Text="{Binding Username}"
+                                    TextColor="#2E2E2E" />
+                                <Label
+                                    Margin="0,5,10,0"
+                                    Grid.Column="0"
+                                    FontSize="12"
+                                    HorizontalOptions="Center"
+                                    Text="{Binding NivelAcceso}"
+                                    TextColor="#5E4B8B" />
+                                <Button
+                                    Grid.Column="2"
+                                    Padding="5"
+                                    BackgroundColor="#FF6B6B"
+                                    CommandParameter="{Binding UsuarioId}"
+                                    CornerRadius="10"
+                                    Text="🗑️"
+                                    TextColor="White" />
+                                    <!--Clicked="OnEliminarUsuarioClicked"-->
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </Frame>
+
+            <Button
+                BackgroundColor="#701A3F"
+                Clicked="OnVolverClicked"
+                CornerRadius="10"
+                FontAttributes="Bold"
+                HorizontalOptions="Center"
+                Text="Volver"
+                TextColor="White"
+                WidthRequest="120" />
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
