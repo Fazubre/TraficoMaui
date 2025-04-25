@@ -25,7 +25,7 @@ namespace TraficoCRFront
             // ✅ Registra HttpClient como singleton
             builder.Services.AddSingleton(new HttpClient
             {
-                BaseAddress = new Uri("http://192.168.0.3:8000/")
+                BaseAddress = new Uri("http://192.168.56.1:8000/")
             });
             builder.Services.AddSingleton(new datosUsuario());
 
