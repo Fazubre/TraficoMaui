@@ -11,12 +11,13 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <Image Source="carretera.jpg"
+        <Image Source= "dossiete.jpg"
+               x:Name="Imagen"
                Aspect="AspectFill"
                HorizontalOptions="FillAndExpand"
                VerticalOptions="FillAndExpand"
-               Opacity="0.7"/>
-
+               Opacity="0.7"/> 
+        
         <Frame BackgroundColor="#F8F7FC"
                CornerRadius="15"
                HasShadow="True"
