@@ -81,10 +81,17 @@ namespace TraficoCRFront.Views.Register
                         if (!_client.DefaultRequestHeaders.Contains("Cookie"))
                             _client.DefaultRequestHeaders.Add("Cookie", token);
 
+
+
                         Console.WriteLine("Token guardado");
                     }
                 }
 
+            var rContent = await response.Content.ReadAsStringAsync();
+            var parsedJson = JsonSerializer.Deserialize<NivelAcceso>(rContent);
+            
+            _user.username = uname;
+            _user.nivelAcceso = (int)parsedJson.nivelAcceso;
                 return true;
             }
             catch (Exception ex)
