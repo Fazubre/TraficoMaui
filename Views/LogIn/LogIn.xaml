@@ -144,15 +144,6 @@
                         Color="#D5488B"
                         HorizontalOptions="Center" />
 
-                    <!-- Olvido contraseña (visual únicamente) -->
-                    <Button
-                        Margin="0,0,0,15"
-                        BackgroundColor="Transparent"
-                        FontSize="14"
-                        HorizontalOptions="Center"
-                        Text="Forgot your password?"
-                        TextColor="#91364E" />
-
                     <!-- Crear cuenta -->
                     <Button
                         BackgroundColor="Transparent"
@@ -161,7 +152,7 @@
                         Clicked="OnRegisterClicked"
                         CornerRadius="20"
                         HeightRequest="50"
-                        Text="Create your account"
+                        Text="Crear cuenta"
                         TextColor="#D5488B"
                         WidthRequest="200" />
 
