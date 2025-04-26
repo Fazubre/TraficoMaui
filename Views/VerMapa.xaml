@@ -31,7 +31,6 @@
 			<AbsoluteLayout>
 
 				<maps:Map x:Name="MyMap"
-                  MapClicked="OnMapClicked"
                   IsShowingUser="True"
                   MapType="Street"
                   AbsoluteLayout.LayoutBounds="0.5,0.5,325,600"
