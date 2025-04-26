@@ -82,6 +82,7 @@
                 </Button>
 
                 <Button Margin="10,5,10,5"
+                        x:Name="BotonAdmin"
                 BackgroundColor="#D5488B"
                 CornerRadius="25"
                 HeightRequest="55"
