@@ -29,6 +29,11 @@
 
                 <Label Text="{Binding mensaje, StringFormat='Descripción: {0}'}"
                        FontSize="16"
+                    TextColor="Black" />
+
+                <Label Text=""
+                       FontSize="16"
+                       x:Name="lblTipoReporte"
                        TextColor="Black" />
                 
                 <maps:Map x:Name="MapPop"
