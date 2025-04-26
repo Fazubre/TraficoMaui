@@ -5,17 +5,23 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     Title="Register">
+
     <ContentPage.Content>
 
-        <Grid RowDefinitions="Auto,*" BackgroundColor="#DDDAEE" >
+        <Grid RowDefinitions="Auto,*" BackgroundColor="#DDDAEE">
+            
+            <!-- Encabezado y formulario principal -->
             <Frame
-                Margin="15,15,15,15"
+                Margin="15"
                 Grid.Row="0"
                 Padding="14"
                 BackgroundColor="White"
                 CornerRadius="20"
                 HasShadow="True">
+
                 <StackLayout Spacing="15">
+
+                    <!-- Título de la página -->
                     <Label
                         FontAttributes="Bold"
                         FontSize="24"
@@ -23,6 +29,7 @@
                         Text="Registrarse!"
                         TextColor="#333366" />
 
+                    <!-- Campo de Nombre de Usuario -->
                     <Frame
                         Padding="15,5"
                         BorderColor="#E0E0E0"
@@ -50,6 +57,7 @@
                         </Grid>
                     </Frame>
 
+                    <!-- Campo de Contraseña -->
                     <Frame
                         Padding="15,5"
                         BorderColor="#E0E0E0"
@@ -78,6 +86,7 @@
                         </Grid>
                     </Frame>
 
+                    <!-- Campo de Confirmar Contraseña -->
                     <Frame
                         Padding="15,5"
                         BorderColor="#E0E0E0"
@@ -106,18 +115,22 @@
                         </Grid>
                     </Frame>
 
-                    <Button
-                        x:Name="RegisterButton"
-                        Margin="0,10,0,5"
-                        BackgroundColor="#D5488B"
-                        CornerRadius="20"
-                        HeightRequest="50"
-                        Text="Register"
-                        TextColor="White"
-                        Clicked="OnRegisterButtonClicked"
-                        />
+                    <!-- Botón de Registrar -->
+                    <ContentView Padding="10" HorizontalOptions="Center">
+                        <Button
+                            x:Name="RegisterButton"
+                            BackgroundColor="#D5488B"
+                            CornerRadius="20"
+                            HeightRequest="50"
+                            WidthRequest="200"
+                            Text="Register"
+                            TextColor="White"
+                            Clicked="OnRegisterButtonClicked" />
+                    </ContentView>
+
                 </StackLayout>
             </Frame>
+
         </Grid>
 
     </ContentPage.Content>

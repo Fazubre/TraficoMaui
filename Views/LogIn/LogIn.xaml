@@ -65,7 +65,7 @@
                         Text="Haga Login para continuar"
                         TextColor="#666666" />
 
-                    <!-- Email -->
+                    <!-- Usuario -->
                     <Frame
                         Padding="15,5"
                         BorderColor="#E0E0E0"
@@ -123,18 +123,19 @@
                     </Frame>
 
                     <!-- Botón de Login -->
-                    <Button
-                        x:Name="loginButton"
-                        Margin="0,10,0,5"
-                        BackgroundColor="#D5488B"
-                        BorderColor="#91364E"
-                        BorderWidth="1"
-                        Clicked="OnLoginClicked"
-                        CornerRadius="20"
-                        HeightRequest="50"
-                        Text="Login"
-                        TextColor="White"
-                        WidthRequest="200" />
+                    <ContentView Padding="10" HorizontalOptions="Center">
+                        <Button
+                            x:Name="loginButton"
+                            BackgroundColor="#D5488B"
+                            BorderColor="#91364E"
+                            BorderWidth="1"
+                            Clicked="OnLoginClicked"
+                            CornerRadius="20"
+                            HeightRequest="50"
+                            Text="Login"
+                            TextColor="White"
+                            WidthRequest="200" />
+                    </ContentView>
 
                     <!-- Indicador de carga -->
                     <ActivityIndicator 
@@ -144,26 +145,28 @@
                         Color="#D5488B"
                         HorizontalOptions="Center" />
 
-                    <!-- Olvido contraseña (visual únicamente) -->
-                    <Button
-                        Margin="0,0,0,15"
-                        BackgroundColor="Transparent"
-                        FontSize="14"
-                        HorizontalOptions="Center"
-                        Text="Forgot your password?"
-                        TextColor="#91364E" />
+                    <!-- Olvido contraseña -->
+                    <ContentView Padding="10" HorizontalOptions="Center">
+                        <Button
+                            BackgroundColor="Transparent"
+                            FontSize="14"
+                            Text="Forgot your password?"
+                            TextColor="#91364E" />
+                    </ContentView>
 
                     <!-- Crear cuenta -->
-                    <Button
-                        BackgroundColor="Transparent"
-                        BorderColor="#91364E"
-                        BorderWidth="1"
-                        Clicked="OnRegisterClicked"
-                        CornerRadius="20"
-                        HeightRequest="50"
-                        Text="Create your account"
-                        TextColor="#D5488B"
-                        WidthRequest="200" />
+                    <ContentView Padding="10" HorizontalOptions="Center">
+                        <Button
+                            BackgroundColor="Transparent"
+                            BorderColor="#91364E"
+                            BorderWidth="1"
+                            Clicked="OnRegisterClicked"
+                            CornerRadius="20"
+                            HeightRequest="50"
+                            Text="Create your account"
+                            TextColor="#D5488B"
+                            WidthRequest="200" />
+                    </ContentView>
 
                 </StackLayout>
             </Frame>
