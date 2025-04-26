@@ -12,14 +12,23 @@ namespace TraficoCRFront.Views
             _client = client;
             _user = user;
             InicializarImagen();
+            InicializarBoton();
         }
 
-        private async void InicializarImagen()
+        private void InicializarImagen()
         {
             string[] listaimagenes = { "dossiete.jpg", "tresdos.jpg","cerro_de_la_muerte.jpg","costanera_sur.jpg","monteverde.jpg","rohrmoser.jpg" };
             var random = new Random();
             int index = random.Next(listaimagenes.Length);
             Imagen.Source = listaimagenes[index];
+        }
+
+        private void InicializarBoton()
+        {
+            if (_user.nivelAcceso == 1)
+            {
+                BotonAdmin.IsVisible = false;
+            }
         }
         private async void OnCrearReporteClicked(object sender, EventArgs e)
         {
