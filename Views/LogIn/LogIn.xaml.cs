@@ -42,7 +42,7 @@ namespace TraficoCRFront.Views.LogIn
 
                 if (loginExitoso)
                 {
-                    await DisplayAlert("Éxito", "Sesión iniciada correctamente.", "OK");
+                    //await DisplayAlert("Éxito", "Sesión iniciada correctamente.", "OK");
                     await Navigation.PushAsync(new MainPage(_client,_user));
                 }
                 else

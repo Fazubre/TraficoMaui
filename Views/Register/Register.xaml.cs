@@ -42,7 +42,7 @@ namespace TraficoCRFront.Views.Register
             if (success)
             {
                 await DisplayAlert("Éxito", "Registro completado correctamente.", "OK");
-                await Navigation.PushAsync(new LogIn.LogIn(_client, _user)); // Ir al login tras éxito
+                await Navigation.PushAsync(new MainPage(_client, _user)); // Ir al login tras éxito
             }
             else
             {
