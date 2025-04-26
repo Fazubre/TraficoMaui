@@ -112,18 +112,22 @@ public partial class GestionReportes : ContentPage
 
         if (reportes != null)
         {
+            reportes.RemoveAll(item => item.activo == false);
             
-
             for (int i = 0; i < reportes.Count; i++)
             {
-                var datosDistritoIdByRequest = await getDistritoByIdRequest(reportes[i].distritoId.ToString());
-                var datosCantonIdByRequest = await getCantonByIdRequest(datosDistritoIdByRequest.idCanton.ToString());
+                
+                {
+                    var datosDistritoIdByRequest = await getDistritoByIdRequest(reportes[i].distritoId.ToString());
+                    var datosCantonIdByRequest =
+                        await getCantonByIdRequest(datosDistritoIdByRequest.idCanton.ToString());
 
-                reportes[i].nomDistrito = datosDistritoIdByRequest.nombreDistrito;
-                reportes[i].nomCanton = datosCantonIdByRequest.nombreCanton;
-                reportes[i].nomProvincia = await getProvinciaByIdRequest(datosCantonIdByRequest.idProvincia.ToString());
-                reportes[i].nomCalle = await getCalleByIdRequest(reportes[i].calleId.ToString());
-               
+                    reportes[i].nomDistrito = datosDistritoIdByRequest.nombreDistrito;
+                    reportes[i].nomCanton = datosCantonIdByRequest.nombreCanton;
+                    reportes[i].nomProvincia =
+                        await getProvinciaByIdRequest(datosCantonIdByRequest.idProvincia.ToString());
+                    reportes[i].nomCalle = await getCalleByIdRequest(reportes[i].calleId.ToString());
+                }
             }
            
 

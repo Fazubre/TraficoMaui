@@ -206,8 +206,8 @@
                                 CornerRadius="10"
                                 HeightRequest="45"
                                 Text="Reportes completos"
-                                TextColor="White" />
-                                <!--Clicked="OnReportesClicked"-->
+                                TextColor="White" 
+                                Clicked="OnReportesCompletosClicked"/>
 
 
                         </StackLayout>
