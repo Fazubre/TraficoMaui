@@ -30,19 +30,11 @@
                 <Label Text="{Binding mensaje, StringFormat='Descripción: {0}'}"
                        FontSize="16"
                        TextColor="Black" />
-
-                <Label Text="{Binding coordenadaX, StringFormat='Longitud: {0}'}"
-                       FontSize="16"
-                       TextColor="Black" />
-
-                <Label Text="{Binding coordenadaY, StringFormat='Latitud: {0}'}"
-                       FontSize="16"
-                       TextColor="Black" />
                 
                 <maps:Map x:Name="MapPop"
                           IsShowingUser="True"
                           MapType="Street"
-                          HeightRequest="150">
+                          HeightRequest="300">
                 </maps:Map>
 
                 <Button Text="Cerrar"
