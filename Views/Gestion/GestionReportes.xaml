@@ -109,6 +109,25 @@
 											Opacity="0.9" />
 										</Button.Shadow>
 									</Button >
+									<Button Margin="0,0,0,0"
+											BackgroundColor="#91364E"
+											CornerRadius="15"
+											HeightRequest="35"
+									        HorizontalOptions="EndAndExpand"
+											VerticalOptions="EndAndExpand"
+											Text="Ver Detalles"
+											TextColor="White"
+											FontAttributes="Bold"
+											FontSize="13"
+											Clicked="OnVerDetallesClicked"
+									     	CommandParameter="{Binding}" >
+										<Button.Shadow>
+											<Shadow Brush="Black"
+											Offset="0,3"
+											Radius="5"
+											Opacity="0.9" />
+										</Button.Shadow>
+									</Button >
 								</HorizontalStackLayout>
 
 							</VerticalStackLayout>

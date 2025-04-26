@@ -63,6 +63,19 @@ public partial class GestionReportes : ContentPage
         }
     }
 
+    private async void eliminarReporte(int id)
+    {
+    }
+    private async void OnDesactivarReporteClicked(object sender, EventArgs e)
+    {
+        var button = sender as Button;
+        var reporte = button.CommandParameter as Reporte;
+        if (reporte != null)
+        {
+            
+        }
+    }
+
     private async void cargarReportes()
     {
         var reportes = await obtenerReportesRequest();
