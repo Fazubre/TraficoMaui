@@ -13,11 +13,13 @@ namespace TraficoCRFront.Views.Register
         private readonly HttpClient _client;
         private readonly datosUsuario _user;
 
-        public Register(HttpClient client)
+        public Register(HttpClient client, datosUsuario user)
         {
             InitializeComponent();
             _client = client;
+            _user = user;
         }
+
 
         private async void OnRegisterButtonClicked(object sender, EventArgs e)
         {
@@ -79,10 +81,17 @@ namespace TraficoCRFront.Views.Register
                         if (!_client.DefaultRequestHeaders.Contains("Cookie"))
                             _client.DefaultRequestHeaders.Add("Cookie", token);
 
+
+
                         Console.WriteLine("Token guardado");
                     }
                 }
 
+            var rContent = await response.Content.ReadAsStringAsync();
+            var parsedJson = JsonSerializer.Deserialize<NivelAcceso>(rContent);
+            
+            _user.username = uname;
+            _user.nivelAcceso = (int)parsedJson.nivelAcceso;
                 return true;
             }
             catch (Exception ex)
