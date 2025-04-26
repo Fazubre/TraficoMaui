@@ -92,7 +92,7 @@ namespace TraficoCRFront.Views
 
             MyMap.Pins.Add(pin);
             
-            DisplayAlert("Ubicación seleccionada", $"Lat: {e.Location.Latitude}, Lng: {e.Location.Longitude}", "OK");
+            
         }
         
         private async void OnReportIncident(object sender, EventArgs e)
