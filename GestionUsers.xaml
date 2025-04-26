@@ -81,38 +81,41 @@
             </Frame>
 
             <Frame BorderColor="#701A3F" CornerRadius="20">
-                <CollectionView x:Name="usuariosListView" SelectionMode="None">
-                    <CollectionView.ItemTemplate>
-                        <DataTemplate>
-                            <Grid
-                                Padding="10"
-                                BackgroundColor="White"
-                                ColumnDefinitions="*,Auto,Auto">
-                                <Label
-                                    FontSize="16"
-                                    Text="{Binding Username}"
-                                    TextColor="#2E2E2E" />
-                                <Label
-                                    Grid.Column="1"
-                                    Margin="0,0,50,0"
-                                    FontSize="16"
-                                    HorizontalOptions="Center"
-                                    Text="{Binding NivelAcceso}"
-                                    TextColor="#701A3F" />
-                                <Button
-                                    Grid.Column="2"
-                                    Padding="5"
-                                    BackgroundColor="#701A3F"
-                                    Clicked="OnAccionesClicked"
-                                    CommandParameter="{Binding Username}"
-                                    CornerRadius="10"
-                                    Text="⋮"
-                                    TextColor="White" />
-                            </Grid>
-                        </DataTemplate>
-                    </CollectionView.ItemTemplate>
-                </CollectionView>
-            </Frame>
+    <ListView x:Name="usuariosListView"
+              HasUnevenRows="True"
+              SeparatorVisibility="None"
+              BackgroundColor="Transparent">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <Grid Padding="10" BackgroundColor="White" ColumnDefinitions="*,Auto,Auto">
+                        <Label
+                            FontSize="16"
+                            Text="{Binding Username}"
+                            TextColor="#2E2E2E" />
+                        <Label
+                            Grid.Column="1"
+                            Margin="0,0,50,0"
+                            FontSize="16"
+                            HorizontalOptions="Center"
+                            Text="{Binding NivelAcceso}"
+                            TextColor="#701A3F" />
+                        <Button
+                            Grid.Column="2"
+                            Padding="5"
+                            BackgroundColor="#701A3F"
+                            Clicked="OnAccionesClicked"
+                            CommandParameter="{Binding Username}"
+                            CornerRadius="10"
+                            Text="⋮"
+                            TextColor="White" />
+                    </Grid>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+</Frame>
+
 
             <Button
                 BackgroundColor="#701A3F"

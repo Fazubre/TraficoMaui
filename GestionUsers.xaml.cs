@@ -1,4 +1,4 @@
-using System.Net;
+ï»¿using System.Net;
 using System.Text;
 using System.Text.Json;
 
@@ -24,7 +24,7 @@ public partial class GestionUsers : ContentPage
             var response = await _client.GetAsync($"buscarUsuarios?usuario={Uri.EscapeDataString(filtro)}");
             if (response.StatusCode == HttpStatusCode.Unauthorized)
             {
-                await DisplayAlert("Sesión expirada", "Por favor inicia sesión nuevamente", "OK");
+                await DisplayAlert("SesiÃ³n expirada", "Por favor inicia sesiÃ³n nuevamente", "OK");
                 return;
             }
 
@@ -36,7 +36,7 @@ public partial class GestionUsers : ContentPage
             {
                 Username = u.GetValueOrDefault("username")?.ToString(),
                 NivelAcceso = u.GetValueOrDefault("NivelAcceso")?.ToString(),
-                UsuarioId = u.GetValueOrDefault("id")?.ToString()
+                UsuarioId = u.GetValueOrDefault("UsuarioId")?.ToString()
             }).ToList();
         }
         catch (Exception ex)
@@ -55,14 +55,14 @@ public partial class GestionUsers : ContentPage
         if (sender is Button btn && btn.CommandParameter is string username)
         {
             var opcion = await DisplayActionSheet($"Acciones para {username}", "Cancelar", null,
-                "Cambiar nivel de acceso", "Asociar región", "Eliminar usuario", "Eliminar asociaciones");
+                "Cambiar nivel de acceso", "Asociar regiÃ³n", "Eliminar usuario", "Eliminar asociaciones");
 
             switch (opcion)
             {
                 case "Cambiar nivel de acceso":
                     await CambiarNivelAcceso(username);
                     break;
-                case "Asociar región":
+                case "Asociar regiÃ³n":
                     await AsociarRegion(username);
                     break;
                 case "Eliminar usuario":
@@ -75,16 +75,14 @@ public partial class GestionUsers : ContentPage
         }
     }
 
-
-
     private async Task EliminarUsuario(string username)
     {
-        var confirmacion = await DisplayAlert("Confirmar", $"¿Eliminar a {username}?", "Sí", "Cancelar");
+        var confirmacion = await DisplayAlert("Confirmar", $"Â¿Eliminar a {username}?", "SÃ­", "Cancelar");
         if (!confirmacion) return;
 
         try
         {
-            var body = new { username };
+            var body = new UsernameRequest { Username = username };
             var json = JsonSerializer.Serialize(body);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
 
@@ -92,7 +90,7 @@ public partial class GestionUsers : ContentPage
 
             if (response.IsSuccessStatusCode)
             {
-                await DisplayAlert("Éxito", "Usuario eliminado correctamente.", "OK");
+                await DisplayAlert("Ã‰xito", "Usuario eliminado correctamente.", "OK");
                 CargarUsuarios();
             }
             else
@@ -131,7 +129,7 @@ public partial class GestionUsers : ContentPage
 
             if (response.IsSuccessStatusCode)
             {
-                await DisplayAlert("Éxito", "Nivel de acceso actualizado.", "OK");
+                await DisplayAlert("Ã‰xito", "Nivel de acceso actualizado.", "OK");
                 CargarUsuarios();
             }
             else
@@ -145,18 +143,17 @@ public partial class GestionUsers : ContentPage
         }
     }
 
-
     private async Task AsociarRegion(string username)
     {
         string region = await DisplayPromptAsync(
-            "Asociar región",
-            $"Ingresa la región a asociar a {username}:");
+            "Asociar regiÃ³n",
+            $"Ingresa la regiÃ³n a asociar a {username}:");
 
         if (string.IsNullOrWhiteSpace(region)) return;
 
         try
         {
-            var body = new { username, region };
+            var body = new AsociarRegionRequest { Username = username, Region = region };
             var json = JsonSerializer.Serialize(body);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
 
@@ -164,30 +161,30 @@ public partial class GestionUsers : ContentPage
 
             if (response.IsSuccessStatusCode)
             {
-                await DisplayAlert("Éxito", "Región asociada correctamente.", "OK");
+                await DisplayAlert("Ã‰xito", "RegiÃ³n asociada correctamente.", "OK");
             }
             else
             {
-                await DisplayAlert("Error", $"No se pudo asociar región: {response.StatusCode}", "OK");
+                await DisplayAlert("Error", $"No se pudo asociar regiÃ³n: {response.StatusCode}", "OK");
             }
         }
         catch (Exception ex)
         {
-            await DisplayAlert("Error", $"Error al asociar región: {ex.Message}", "OK");
+            await DisplayAlert("Error", $"Error al asociar regiÃ³n: {ex.Message}", "OK");
         }
     }
 
     private async Task EliminarAsociacion(string username)
     {
         bool eliminarTodas = await DisplayAlert(
-            "Eliminar asociación",
-            $"¿Eliminar todas las asociaciones de {username}?",
-            "Sí, todas", "Solo una");
+            "Eliminar asociaciÃ³n",
+            $"Â¿Eliminar todas las asociaciones de {username}?",
+            "SÃ­, todas", "Solo una");
 
         try
         {
             var endpoint = eliminarTodas ? "eliminarAsociacionTodas" : "eliminarAsociacion";
-            var body = new { username };
+            var body = new UsernameRequest { Username = username };
             var json = JsonSerializer.Serialize(body);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
 
@@ -195,7 +192,7 @@ public partial class GestionUsers : ContentPage
 
             if (response.IsSuccessStatusCode)
             {
-                await DisplayAlert("Éxito", "Asociación eliminada.", "OK");
+                await DisplayAlert("Ã‰xito", "AsociaciÃ³n eliminada.", "OK");
             }
             else
             {
@@ -204,7 +201,7 @@ public partial class GestionUsers : ContentPage
         }
         catch (Exception ex)
         {
-            await DisplayAlert("Error", $"Error al eliminar asociación: {ex.Message}", "OK");
+            await DisplayAlert("Error", $"Error al eliminar asociaciÃ³n: {ex.Message}", "OK");
         }
     }
 
@@ -212,12 +209,22 @@ public partial class GestionUsers : ContentPage
     {
         await Navigation.PopAsync();
     }
-   
+
+    // CLASES AUXILIARES CORRECTAS
+    public class UsernameRequest
+    {
+        public string Username { get; set; }
+    }
+
     public class CambioNivelRequest
     {
         public string Username { get; set; }
         public int NivelAcceso { get; set; }
     }
 
-
+    public class AsociarRegionRequest
+    {
+        public string Username { get; set; }
+        public string Region { get; set; }
+    }
 }
