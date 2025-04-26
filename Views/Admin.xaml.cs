@@ -1,5 +1,6 @@
 ﻿using System.Net;
 using System.Net.Http.Json;
+using System.Text.Json;
 using TraficoCRFront.Views.LogIn;
 using TraficoCRFront.Views.Gestion;
 
@@ -29,7 +30,6 @@ namespace TraficoCRFront.Views
                     //await DisplayAlert("No posee cuenta de administrador", "Por favor inicia sesión de nuevo.", "OK");
                     //await Navigation.PopToRootAsync();
                     tUsuarios.IsVisible = false;
-                    return;
                 }
                 else if (usuariosResponse.IsSuccessStatusCode)
                 {
@@ -37,7 +37,7 @@ namespace TraficoCRFront.Views
                     //await DisplayAlert("Usuarios", $"Usuarios encontrados: {usuarios?.Count}", "OK");
                     labelUsuarios.Text = usuarios?.Count.ToString() ?? "0";
                 }
-                else
+                else if (usuariosResponse.StatusCode != HttpStatusCode.Unauthorized)
                 {
                     await DisplayAlert("Error al cargar usuarios", $"Código: {usuariosResponse.StatusCode}", "OK");
                 }
@@ -52,7 +52,10 @@ namespace TraficoCRFront.Views
                 }
                 else if (activosResponse.IsSuccessStatusCode)
                 {
-                    var reportesActivos = await activosResponse.Content.ReadFromJsonAsync<List<object>>();
+                    //var reportesActivos = await activosResponse.Content.ReadFromJsonAsync<List<object>>();
+                    var contenido = await activosResponse.Content.ReadAsStringAsync();
+                    var reportesActivos = JsonSerializer.Deserialize<List<Reporte>>(contenido);
+                    reportesActivos.RemoveAll(item => item.activo == false);
                     await DisplayAlert("Reportes Activos", $"Activos: {reportesActivos?.Count}", "OK");
                     labelActivos.Text = reportesActivos?.Count.ToString() ?? "0";
                 }
@@ -63,7 +66,7 @@ namespace TraficoCRFront.Views
                 }
 
                 // Reportes completos
-                var completosResponse = await _client.GetAsync("getReportesPropios");
+                var completosResponse = await _client.GetAsync("getReportesDistritosPropios");
                 if (completosResponse.StatusCode == HttpStatusCode.Unauthorized)
                 {
                     await DisplayAlert("No posee cuenta de administrador", "Por favor inicia sesión de nuevo.", "OK");
@@ -72,14 +75,18 @@ namespace TraficoCRFront.Views
                 }
                 else if (completosResponse.IsSuccessStatusCode)
                 {
-                    var reportesCompletos = await completosResponse.Content.ReadFromJsonAsync<List<object>>();
-                    await DisplayAlert("Reportes Completos", $"Completos: {reportesCompletos?.Count}", "OK");
-                    labelCompletos.Text = reportesCompletos?.Count.ToString() ?? "0";
+                    //var reportesActivos = await activosResponse.Content.ReadFromJsonAsync<List<object>>();
+                    var contenido = await completosResponse.Content.ReadAsStringAsync();
+                    var reportesCompletos = JsonSerializer.Deserialize<List<Reporte>>(contenido);
+                    reportesCompletos.RemoveAll(item => item.activo == true);
+                    await DisplayAlert("Reportes Activos", $"Activos: {reportesCompletos?.Count}", "OK");
+                    labelActivos.Text = reportesCompletos?.Count.ToString() ?? "0";
                 }
                 else
                 {
-                    await DisplayAlert("Error al cargar reportes completos", $"Código: {completosResponse.StatusCode}",
-                        "OK");
+
+                    await DisplayAlert("Error al cargar reportes activos", $"Código: {activosResponse.StatusCode}", "OK");
+
                 }
             }
             catch (Exception ex)
