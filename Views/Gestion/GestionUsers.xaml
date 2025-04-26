@@ -104,7 +104,7 @@
                                     Padding="5"
                                     BackgroundColor="#701A3F"
                                     Clicked="OnAccionesClicked"
-                                    CommandParameter="{Binding Username}"
+                                    CommandParameter="{Binding UsuarioId}"
                                     CornerRadius="10"
                                     Text="⋮"
                                     TextColor="White" />
