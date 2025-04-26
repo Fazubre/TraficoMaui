@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <toolkit:Popup xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:maps="http://schemas.microsoft.com/dotnet/2021/maui/maps"
                xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
                x:Class="TraficoCRFront.Views.PopupDetallesReportes"
                Color="Transparent">
@@ -37,6 +38,12 @@
                 <Label Text="{Binding coordenadaY, StringFormat='Latitud: {0}'}"
                        FontSize="16"
                        TextColor="Black" />
+                
+                <maps:Map x:Name="MapPop"
+                          IsShowingUser="True"
+                          MapType="Street"
+                          HeightRequest="150">
+                </maps:Map>
 
                 <Button Text="Cerrar"
                         Clicked="Cerrar_Clicked"
