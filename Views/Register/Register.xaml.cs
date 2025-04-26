@@ -13,11 +13,13 @@ namespace TraficoCRFront.Views.Register
         private readonly HttpClient _client;
         private readonly datosUsuario _user;
 
-        public Register(HttpClient client)
+        public Register(HttpClient client, datosUsuario user)
         {
             InitializeComponent();
             _client = client;
+            _user = user;
         }
+
 
         private async void OnRegisterButtonClicked(object sender, EventArgs e)
         {

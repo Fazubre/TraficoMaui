@@ -100,8 +100,9 @@ namespace TraficoCRFront.Views.LogIn
 
         private async void OnRegisterClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new Register.Register(_client));
+            await Navigation.PushAsync(new Register.Register(_client, _user));
         }
+
         public void LimpiarCampos()
         {
             usuarioEntry.Text = string.Empty;
