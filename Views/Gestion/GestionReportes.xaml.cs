@@ -63,16 +63,45 @@ public partial class GestionReportes : ContentPage
         }
     }
 
-    private async void eliminarReporte(int id)
-    {
-    }
+    
+    
     private async void OnDesactivarReporteClicked(object sender, EventArgs e)
     {
         var button = sender as Button;
         var reporte = button.CommandParameter as Reporte;
         if (reporte != null)
         {
-            
+            try
+            {
+                // Crear un objeto anónimo con el ID del reporte
+                var requestData = new { reporteId = reporte.id };
+
+                // Serializar el objeto a JSON
+                var json = JsonSerializer.Serialize(requestData);
+
+                // Crear el contenido del request
+                var content = new StringContent(json, System.Text.Encoding.UTF8, "application/json");
+
+                // Enviar el POST al endpoint
+                var response = await _client.PostAsync("desactivarReporte", content);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    await DisplayAlert("Éxito", "Se ha desactivado el incidente.", "OK");
+                
+                    // Opcional: refrescar la lista de reportes
+                    cargarReportes();
+                }
+                else
+                {
+                    await DisplayAlert("Error", $"No se pudo desactivar el reporte. Código: {response.StatusCode}", "OK");
+                }
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Error", $"Excepción al desactivar el reporte: {ex.Message}", "OK");
+            }
+        
         }
     }
 
@@ -83,18 +112,22 @@ public partial class GestionReportes : ContentPage
 
         if (reportes != null)
         {
+            reportes.RemoveAll(item => item.activo == false);
             
-
             for (int i = 0; i < reportes.Count; i++)
             {
-                var datosDistritoIdByRequest = await getDistritoByIdRequest(reportes[i].distritoId.ToString());
-                var datosCantonIdByRequest = await getCantonByIdRequest(datosDistritoIdByRequest.idCanton.ToString());
+                
+                {
+                    var datosDistritoIdByRequest = await getDistritoByIdRequest(reportes[i].distritoId.ToString());
+                    var datosCantonIdByRequest =
+                        await getCantonByIdRequest(datosDistritoIdByRequest.idCanton.ToString());
 
-                reportes[i].nomDistrito = datosDistritoIdByRequest.nombreDistrito;
-                reportes[i].nomCanton = datosCantonIdByRequest.nombreCanton;
-                reportes[i].nomProvincia = await getProvinciaByIdRequest(datosCantonIdByRequest.idProvincia.ToString());
-                reportes[i].nomCalle = await getCalleByIdRequest(reportes[i].calleId.ToString());
-               
+                    reportes[i].nomDistrito = datosDistritoIdByRequest.nombreDistrito;
+                    reportes[i].nomCanton = datosCantonIdByRequest.nombreCanton;
+                    reportes[i].nomProvincia =
+                        await getProvinciaByIdRequest(datosCantonIdByRequest.idProvincia.ToString());
+                    reportes[i].nomCalle = await getCalleByIdRequest(reportes[i].calleId.ToString());
+                }
             }
            
 
@@ -346,4 +379,6 @@ public partial class GestionReportes : ContentPage
             return null;
         }
     }
+
+    
 }

@@ -1,20 +1,22 @@
-
+﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using CommunityToolkit.Maui.Views;
-
 using System.Diagnostics;
 using System.Text.Json;
 //using GoogleGson;
 using JsonElement = System.Text.Json.JsonElement;
 
-namespace TraficoCRFront.Views;
+namespace TraficoCRFront.Views.Gestion;
 
-public partial class VerReportes : ContentPage
+public partial class ReportesCompletos : ContentPage
 {
+
     private readonly HttpClient _client;
     private readonly datosUsuario _user;
-    public VerReportes(HttpClient client, datosUsuario user)
+    public ReportesCompletos(HttpClient client, datosUsuario user)
 	{
 		InitializeComponent();
         _client = client;
@@ -72,23 +74,20 @@ public partial class VerReportes : ContentPage
 
         if (reportes != null)
         {
-            
-            reportes.RemoveAll(item => item.activo == false);
+            reportes.RemoveAll(item => item.activo == true);
+
             for (int i = 0; i < reportes.Count; i++)
             {
-                
-                {
-                    var datosDistritoIdByRequest = await getDistritoByIdRequest(reportes[i].distritoId.ToString());
-                    var datosCantonIdByRequest = await getCantonByIdRequest(datosDistritoIdByRequest.idCanton.ToString());
+                var datosDistritoIdByRequest = await getDistritoByIdRequest(reportes[i].distritoId.ToString());
+                var datosCantonIdByRequest = await getCantonByIdRequest(datosDistritoIdByRequest.idCanton.ToString());
 
-                    reportes[i].nomDistrito = datosDistritoIdByRequest.nombreDistrito;
-                    reportes[i].nomCanton = datosCantonIdByRequest.nombreCanton;
-                    reportes[i].nomProvincia = await getProvinciaByIdRequest(datosCantonIdByRequest.idProvincia.ToString());
-                    reportes[i].nomCalle = await getCalleByIdRequest(reportes[i].calleId.ToString());
-                }
-                
+                reportes[i].nomDistrito = datosDistritoIdByRequest.nombreDistrito;
+                reportes[i].nomCanton = datosCantonIdByRequest.nombreCanton;
+                reportes[i].nomProvincia = await getProvinciaByIdRequest(datosCantonIdByRequest.idProvincia.ToString());
+                reportes[i].nomCalle = await getCalleByIdRequest(reportes[i].calleId.ToString());
+
             }
-           
+            
 
             ReportesCollectionView.ItemsSource = reportes;
         }

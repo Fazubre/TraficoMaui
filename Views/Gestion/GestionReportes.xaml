@@ -115,11 +115,11 @@
 											HeightRequest="35"
 									        HorizontalOptions="EndAndExpand"
 											VerticalOptions="EndAndExpand"
-											Text="Ver Detalles"
+											Text="Desactivar"
 											TextColor="White"
 											FontAttributes="Bold"
 											FontSize="13"
-											Clicked="OnVerDetallesClicked"
+											Clicked="OnDesactivarReporteClicked"
 									     	CommandParameter="{Binding}" >
 										<Button.Shadow>
 											<Shadow Brush="Black"
