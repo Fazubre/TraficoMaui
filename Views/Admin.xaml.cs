@@ -80,7 +80,7 @@ namespace TraficoCRFront.Views
                     var reportesCompletos = JsonSerializer.Deserialize<List<Reporte>>(contenido);
                     reportesCompletos.RemoveAll(item => item.activo == true);
                     await DisplayAlert("Reportes Activos", $"Activos: {reportesCompletos?.Count}", "OK");
-                    labelActivos.Text = reportesCompletos?.Count.ToString() ?? "0";
+                    labelCompletos.Text = reportesCompletos?.Count.ToString() ?? "0";
                 }
                 else
                 {
