@@ -1,5 +1,6 @@
 ﻿using Microsoft.Maui.Controls.Maps;
-using Microsoft.Maui.Devices.Sensors;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui.Maps;
 using System.Diagnostics;
 using System.Net;
 using System.Text;
@@ -10,17 +11,68 @@ namespace TraficoCRFront.Views
     public partial class CrearReporte : ContentPage
     {
         
+        
         private Location _locacionInci;
 
         private readonly HttpClient _client;
         private readonly datosUsuario _user;
+        
 
         public CrearReporte(HttpClient client, datosUsuario user)
         {
             InitializeComponent();
+            InicializarMapaAsync();
+            
             _client = client;
             _user = user;
         }
+        
+        
+        
+        
+        private async void InicializarMapaAsync()
+        {
+            try
+            {
+                // Intentar obtener ubicación actual
+                var location = await Geolocation.GetLastKnownLocationAsync();
+
+                if (location == null)
+                {
+                    location = await Geolocation.GetLocationAsync(
+                        new GeolocationRequest
+                        {
+                            DesiredAccuracy = GeolocationAccuracy.Medium,
+                            Timeout = TimeSpan.FromSeconds(10)
+                        });
+                }
+
+                if (location != null)
+                {
+                    var position = new Location(location.Latitude, location.Longitude);
+                    MyMap.MoveToRegion(MapSpan.FromCenterAndRadius(
+                        new Location(position.Latitude, position.Longitude),
+                        Distance.FromKilometers(0.5)));
+                }
+                else
+                {
+                    var defaultLocation = new Location(9.6, -84.3534);
+                    MyMap.MoveToRegion(MapSpan.FromCenterAndRadius(defaultLocation, Distance.FromKilometers(3)));
+                }
+            }
+            catch (Exception)
+            {
+                var defaultLocation = new Location(9.6, -84.3534);
+                MyMap.MoveToRegion(MapSpan.FromCenterAndRadius(defaultLocation, Distance.FromKilometers(3)));
+            }
+        }
+        
+        
+        
+        
+        
+        
+        
 
         private void OnMapClicked(object sender, MapClickedEventArgs e)
         {
@@ -31,6 +83,7 @@ namespace TraficoCRFront.Views
             var pin = new Pin
             {
                 Label = "Incidente",
+                
                 /*Address = $"Lat: {position.Latitude}, Lng: {position.Longitude}",*/
                 Address = "Ubicación seleccionada",
                 Type = PinType.Place,

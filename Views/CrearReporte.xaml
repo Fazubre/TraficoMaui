@@ -14,20 +14,6 @@
                       IsShowingUser="True"
                       MapType="Street"
                       HeightRequest="400">
-                <x:Arguments>
-                    <maps:MapSpan>
-                        <x:Arguments>
-                            <sensors:Location>
-                                <x:Arguments>
-                                    <x:Double>9.6</x:Double>
-                                    <x:Double>-84.3534</x:Double>
-                                </x:Arguments>
-                            </sensors:Location>
-                            <x:Double>3</x:Double>
-                            <x:Double>3</x:Double>
-                        </x:Arguments>
-                    </maps:MapSpan>
-                </x:Arguments>
             </maps:Map>
 
 

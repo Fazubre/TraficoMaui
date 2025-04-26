@@ -24,7 +24,7 @@ public partial class VerReportes : ContentPage
 
     private async void OnCrearReporteClicked(object sender, EventArgs e)
     {
-        await Navigation.PushAsync(new MapPage(_client, _user));
+        await Navigation.PushAsync(new CrearReporte(_client, _user));
     }
 
     private async void OnInicioClicked(object sender, EventArgs e)
@@ -104,7 +104,7 @@ public partial class VerReportes : ContentPage
             string id = idCalle;
             Debug.WriteLine("id de la provincia" + id);
 
-            // Construir la URL con el parámetro 'id'
+            // Construir la URL con el parï¿½metro 'id'
             string url = $"getCalleById?id={id}";
 
             Debug.WriteLine(url);
@@ -138,7 +138,7 @@ public partial class VerReportes : ContentPage
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Excepción durante la solicitud: {ex.Message}");
+            Console.WriteLine($"Excepciï¿½n durante la solicitud: {ex.Message}");
             return null;
         }
     }
@@ -150,7 +150,7 @@ public partial class VerReportes : ContentPage
             string id = idProvincia;
             Debug.WriteLine("id de la provincia"+id);
 
-            // Construir la URL con el parámetro 'id'
+            // Construir la URL con el parï¿½metro 'id'
             string url = $"getProvinciaById?id={id}";
 
             Debug.WriteLine(url);
@@ -184,7 +184,7 @@ public partial class VerReportes : ContentPage
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Excepción durante la solicitud: {ex.Message}");
+            Console.WriteLine($"Excepciï¿½n durante la solicitud: {ex.Message}");
             return null;
         }
     }
@@ -195,7 +195,7 @@ public partial class VerReportes : ContentPage
         {
             string id = idCanton;
 
-            // Construir la URL con el parámetro 'id'
+            // Construir la URL con el parï¿½metro 'id'
             string url = $"getCantonById?id={id}";
 
             Debug.WriteLine(url);
@@ -232,7 +232,7 @@ public partial class VerReportes : ContentPage
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Excepción durante la solicitud: {ex.Message}");
+            Console.WriteLine($"Excepciï¿½n durante la solicitud: {ex.Message}");
             return (null, 0);
         }
     }
@@ -243,7 +243,7 @@ public partial class VerReportes : ContentPage
         {
             string id = idDistrito; 
 
-            // Construir la URL con el parámetro 'id'
+            // Construir la URL con el parï¿½metro 'id'
             string url = $"getDistritoById?id={id}";
 
             Debug.WriteLine(url);
@@ -287,7 +287,7 @@ public partial class VerReportes : ContentPage
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Excepción durante la solicitud: {ex.Message}");
+            Console.WriteLine($"Excepciï¿½n durante la solicitud: {ex.Message}");
             return (null,0);
         }
     }
@@ -323,7 +323,7 @@ public partial class VerReportes : ContentPage
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Excepción durante la solicitud: {ex.Message}");
+            Console.WriteLine($"Excepciï¿½n durante la solicitud: {ex.Message}");
             return null;
         }
     }
