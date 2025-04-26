@@ -121,10 +121,10 @@ namespace TraficoCRFront.Views
             await Navigation.PushAsync(new GestionReportes(_client, _user));
         }
 
-        //private async void OnReportesClicked(object sender, EventArgs e)
-        //{
-        //    await Navigation.PopToRootAsync();
-        //    await Navigation.PushAsync(new Reportes(_client, _user));
-        //}
+        private async void OnReportesCompletosClicked(object sender, EventArgs e)
+        {
+            
+            await Navigation.PushAsync(new ReportesCompletos(_client, _user));
+        }
     }
 }

@@ -29,12 +29,12 @@ namespace TraficoCRFront.Views
         
         
         
-        
+        // Funcion que corre al iniciar CrearReporte. Agarra la ubi actual del dispositivo para presentarla en el mapa. Si no muestra CR
         private async void InicializarMapaAsync()
         {
             try
             {
-                // Intentar obtener ubicación actual
+                
                 var location = await Geolocation.GetLastKnownLocationAsync();
 
                 if (location == null)
@@ -73,7 +73,7 @@ namespace TraficoCRFront.Views
         
         
         
-
+        // Funcion para que usuario ponga un pin en el mapa y se guarda la ubicacion
         private void OnMapClicked(object sender, MapClickedEventArgs e)
         {
             MyMap.Pins.Clear();
