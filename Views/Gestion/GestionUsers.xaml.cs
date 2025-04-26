@@ -36,7 +36,7 @@ public partial class GestionUsers : ContentPage
             {
                 Username = u.GetValueOrDefault("username")?.ToString(),
                 NivelAcceso = u.GetValueOrDefault("NivelAcceso")?.ToString(),
-                UsuarioId = u.GetValueOrDefault("id")?.ToString()
+                UsuarioId = u.GetValueOrDefault("UserID")?.ToString()
             }).ToList();
         }
         catch (Exception ex)
@@ -52,39 +52,39 @@ public partial class GestionUsers : ContentPage
 
     private async void OnAccionesClicked(object sender, EventArgs e)
     {
-        if (sender is Button btn && btn.CommandParameter is string username)
-        {
-            var opcion = await DisplayActionSheet($"Acciones para {username}", "Cancelar", null,
-                "Cambiar nivel de acceso", "Asociar regi�n", "Eliminar usuario", "Eliminar asociaciones");
+        var butn = sender as Button;
+        var aaaaa = butn?.CommandParameter as string;
+        var UsuarioId = int.Parse(aaaaa);
+        var opcion = await DisplayActionSheet($"Acciones para {UsuarioId}", "Cancelar", null,
+            "Cambiar nivel de acceso", "Asociar regi�n", "Eliminar usuario", "Eliminar asociaciones");
 
-            switch (opcion)
-            {
-                case "Cambiar nivel de acceso":
-                    await CambiarNivelAcceso(username);
-                    break;
-                case "Asociar regi�n":
-                    await AsociarRegion(username);
-                    break;
-                case "Eliminar usuario":
-                    await EliminarUsuario(username);
-                    break;
-                case "Eliminar asociaciones":
-                    await EliminarAsociacion(username);
-                    break;
-            }
+        switch (opcion)
+        {
+            case "Cambiar nivel de acceso":
+                await CambiarNivelAcceso(UsuarioId);
+                break;
+            case "Asociar regi�n":
+                await AsociarRegion(UsuarioId);
+                break;
+            case "Eliminar usuario":
+                await EliminarUsuario(UsuarioId);
+                break;
+            case "Eliminar asociaciones":
+                await EliminarAsociacion(UsuarioId);
+                break;
         }
     }
 
 
 
-    private async Task EliminarUsuario(string username)
+    private async Task EliminarUsuario(int username)
     {
-        var confirmacion = await DisplayAlert("Confirmar", $"�Eliminar a {username}?", "S�", "Cancelar");
+        var confirmacion = await DisplayAlert("Confirmar", $"�Eliminar a el usuario", "S�", "Cancelar");
         if (!confirmacion) return;
 
         try
         {
-            var body = new { username };
+            var body = new { usuarioId = username };
             var json = JsonSerializer.Serialize(body);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
 
@@ -106,7 +106,7 @@ public partial class GestionUsers : ContentPage
         }
     }
 
-    private async Task CambiarNivelAcceso(string username)
+    private async Task CambiarNivelAcceso(int username)
     {
         string nuevoNivel = await DisplayPromptAsync(
             "Cambiar nivel de acceso",
@@ -118,10 +118,10 @@ public partial class GestionUsers : ContentPage
 
         try
         {
-            var body = new CambioNivelRequest
+            var body = new 
             {
-                Username = username,
-                NivelAcceso = int.Parse(nuevoNivel)
+                usuarioId = username,
+                NivelAccesoDeseado = int.Parse(nuevoNivel)
             };
 
             var json = JsonSerializer.Serialize(body);
@@ -145,18 +145,17 @@ public partial class GestionUsers : ContentPage
         }
     }
 
-
-    private async Task AsociarRegion(string username)
+    private async Task AsociarRegion(int username)
     {
         string region = await DisplayPromptAsync(
             "Asociar regi�n",
-            $"Ingresa la regi�n a asociar a {username}:");
+            $"Ingresa el codigo postal del canton a asociar:");
 
         if (string.IsNullOrWhiteSpace(region)) return;
 
         try
         {
-            var body = new { username, region };
+            var body = new { usuarioId = username , DistritoIdDeseado = int.Parse(region) };
             var json = JsonSerializer.Serialize(body);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
 
@@ -177,17 +176,12 @@ public partial class GestionUsers : ContentPage
         }
     }
 
-    private async Task EliminarAsociacion(string username)
+    private async Task EliminarAsociacion(int username)
     {
-        bool eliminarTodas = await DisplayAlert(
-            "Eliminar asociaci�n",
-            $"�Eliminar todas las asociaciones de {username}?",
-            "S�, todas", "Solo una");
-
         try
         {
-            var endpoint = eliminarTodas ? "eliminarAsociacionTodas" : "eliminarAsociacion";
-            var body = new { username };
+            var endpoint = "eliminarAsociacionTodas";
+            var body = new { usuarioId = username };
             var json = JsonSerializer.Serialize(body);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
 
