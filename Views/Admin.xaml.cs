@@ -16,7 +16,7 @@ namespace TraficoCRFront.Views
             InitializeComponent();
             _client = client;
             _user = user;
-             CargarEstadisticas(); 
+            CargarEstadisticas();
         }
 
         private async void CargarEstadisticas()
@@ -61,7 +61,8 @@ namespace TraficoCRFront.Views
                 }
                 else
                 {
-                    await DisplayAlert("Error al cargar reportes activos", $"Código: {activosResponse.StatusCode}", "OK");
+                    await DisplayAlert("Error al cargar reportes activos", $"Código: {activosResponse.StatusCode}",
+                        "OK");
                 }
 
                 // Reportes completos
@@ -83,7 +84,9 @@ namespace TraficoCRFront.Views
                 }
                 else
                 {
+
                     await DisplayAlert("Error al cargar reportes activos", $"Código: {activosResponse.StatusCode}", "OK");
+
                 }
             }
             catch (Exception ex)
@@ -129,7 +132,7 @@ namespace TraficoCRFront.Views
 
         private async void OnReportesCompletosClicked(object sender, EventArgs e)
         {
-            
+
             await Navigation.PushAsync(new ReportesCompletos(_client, _user));
         }
     }
