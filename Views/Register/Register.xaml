@@ -43,7 +43,7 @@
                                 Grid.Column="1"
                                 Margin="5"
                                 BackgroundColor="Transparent"
-                                Placeholder="Nombre y apellido"
+                                Placeholder="Nombre de Usuario"
                                 PlaceholderColor="#999999"
                                 TextColor="#333333"
                                 VerticalOptions="Center" />

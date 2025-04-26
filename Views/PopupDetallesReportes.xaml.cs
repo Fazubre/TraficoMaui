@@ -10,7 +10,9 @@ public partial class PopupDetallesReportes : Popup
 		InitializeComponent();
         BindingContext = reporte;
         AgregarPin();
-	}
+        asignarTipoReporte();
+
+    }
 
 	private void AgregarPin()
 	{
@@ -40,6 +42,42 @@ public partial class PopupDetallesReportes : Popup
 			Console.WriteLine($"Error al agregar el pin: {ex.Message}");
 		}
 	}
+
+    private void asignarTipoReporte()
+    {
+        var vm = BindingContext;
+        var tipo = vm.GetType();
+
+		int tipoReporte = Convert.ToInt32(tipo.GetProperty("tipoReporte")?.GetValue (vm));
+
+		switch (tipoReporte)
+		{
+			case 1: 
+				lblTipoReporte.Text = "Hueco"; 
+				break;
+            case 2:
+                lblTipoReporte.Text = "Calle Bloqueada";
+                break;
+            case 3:
+                lblTipoReporte.Text = "Deslizamiento";
+                break;
+            case 4:
+                lblTipoReporte.Text = "Inundación";
+                break;
+            case 5:
+                lblTipoReporte.Text = "Infraestructura Peligrosa";
+                break;
+            case 6:
+                lblTipoReporte.Text = "Otro";
+                break;
+            case 7:
+                lblTipoReporte.Text = "Caballo Muerto Bloqueando Calle";
+                break;
+            case 8:
+                lblTipoReporte.Text = "Vehiculo Bloqueando Calle";
+                break;
+        }
+    }
 
     private void Cerrar_Clicked(object sender, EventArgs e)
     {
